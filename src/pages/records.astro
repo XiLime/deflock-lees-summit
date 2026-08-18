@@ -1,0 +1,1551 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+
+<title>From the Records | DeFlock Lee's Summit</title>
+
+<meta
+  name="description"
+  content="Original public records related to Lee's Summit's Flock automated license plate reader program."
+/>
+
+<style>
+
+.feature-highlight,
+.retention-highlight {
+  margin-top: 35px;
+  padding: 34px;
+  background: #141414;
+  border-left: 5px solid #d22b2b;
+}
+
+.feature-label,
+.retention-label {
+  color: #d22b2b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.feature-highlight h3 {
+  margin: 12px 0 25px;
+  font-size: 32px;
+}
+
+.attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.attribute {
+  padding: 15px;
+  background: #0b0b0b;
+  border: 1px solid #333;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .7px;
+}
+
+.explanation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.explanation-card {
+  padding: 28px;
+  background: #141414;
+  border: 1px solid #292929;
+}
+
+.explanation-card h3 {
+  margin: 22px 0 12px;
+}
+
+.explanation-card p {
+  color: #aaa;
+  line-height: 1.65;
+}
+
+.retention-number {
+  font-size: clamp(55px, 8vw, 85px);
+  font-weight: 900;
+  letter-spacing: -4px;
+}
+
+.retention-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 14px;
+  align-items: stretch;
+  margin-top: 18px;
+}
+
+.flow-step {
+  padding: 26px;
+  background: #141414;
+  border: 1px solid #292929;
+}
+
+.flow-number {
+  color: #d22b2b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.flow-step h3 {
+  margin: 25px 0 10px;
+  font-size: 20px;
+}
+
+.flow-step p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.flow-arrow {
+  align-self: center;
+  color: #d22b2b;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.retention-note {
+  margin-top: 18px;
+  padding: 30px;
+  background: #d22b2b;
+}
+
+.retention-note .date {
+  color: white;
+}
+
+.retention-note h3 {
+  margin: 16px 0 12px;
+  font-size: 26px;
+}
+
+.retention-note p {
+  max-width: 800px;
+  margin-bottom: 0;
+  line-height: 1.65;
+}
+
+.money-highlight {
+  margin-top: 35px;
+  padding: 35px;
+  background: #d22b2b;
+  color: #fff;
+}
+
+.big-number {
+  font-size: clamp(52px, 8vw, 84px);
+  font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 1;
+}
+
+.big-number-label {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.money-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.money-card {
+  background: #141414;
+  border: 1px solid #292929;
+  padding: 28px;
+}
+
+.money-card h3 {
+  margin: 25px 0 10px;
+  font-size: 23px;
+}
+
+.money-card p {
+  color: #aaa;
+  line-height: 1.65;
+}
+
+.money-amount {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-bottom: 18px;
+}
+
+.featured-money {
+  border-color: #d22b2b;
+}
+
+.billing-summary {
+  margin-top: 35px;
+  background: #141414;
+  border: 1px solid #292929;
+  padding: 30px;
+}
+
+.billing-summary h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.billing-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #292929;
+  color: #aaa;
+}
+
+.billing-row strong {
+  color: #fff;
+}
+
+.total-row {
+  color: #fff;
+  font-weight: 900;
+}
+
+.recurring-row {
+  color: #d22b2b;
+  font-weight: 900;
+}
+
+.source-box {
+  margin-top: 30px;
+  padding: 28px;
+  border-left: 5px solid #d22b2b;
+  background: #141414;
+}
+
+.source-box h3 {
+  margin-top: 0;
+}
+
+.source-box p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.source-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0b0b0b;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1050px, calc(100% - 40px));
+  margin: auto;
+}
+
+header {
+  border-bottom: 1px solid #292929;
+}
+
+nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.brand span {
+  color: #d22b2b;
+}
+
+.back {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero {
+  padding: 75px 0 70px;
+  border-bottom: 1px solid #292929;
+}
+
+.eyebrow {
+  color: #d22b2b;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 12px 0 20px;
+  font-size: clamp(50px, 8vw, 88px);
+  line-height: .95;
+  letter-spacing: -4px;
+}
+
+.lead {
+  max-width: 750px;
+  color: #aaa;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.record-section {
+  padding: 80px 0;
+  border-bottom: 1px solid #292929;
+}
+
+.record-label {
+  color: #d22b2b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.record-section h2 {
+  margin: 12px 0 12px;
+  font-size: clamp(34px, 5vw, 55px);
+  letter-spacing: -2px;
+}
+
+.record-intro {
+  max-width: 760px;
+  color: #aaa;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.permit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.document-card {
+  display: flex;
+  flex-direction: column;
+  background: #141414;
+  border: 1px solid #292929;
+  padding: 28px;
+  min-height: 340px;
+}
+
+.document-card:hover {
+  border-color: #d22b2b;
+}
+
+.date {
+  color: #d22b2b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.document-card h3 {
+  margin: 28px 0 8px;
+  font-size: 25px;
+}
+
+.meta {
+  color: #777;
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+.document-card p {
+  color: #aaa;
+  line-height: 1.65;
+}
+
+.document-button {
+  margin-top: auto;
+  display: inline-block;
+  width: fit-content;
+  padding: 13px 16px;
+  border: 1px solid #444;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.document-button:hover {
+  background: #d22b2b;
+  border-color: #d22b2b;
+}
+
+.private {
+  border-left: 4px solid #777;
+}
+
+.coming-soon {
+  margin-top: 28px;
+  padding: 30px;
+  background: #141414;
+  border-left: 5px solid #d22b2b;
+}
+
+.coming-soon strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.coming-soon p {
+  margin: 0;
+  color: #999;
+  line-height: 1.6;
+}
+
+.contract-hero {
+  margin-top: 35px;
+  padding: 34px;
+  background: #141414;
+  border-left: 5px solid #d22b2b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.contract-small {
+  color: #d22b2b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.contract-total {
+  margin-top: 8px;
+  font-size: clamp(48px, 7vw, 78px);
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.contract-total-label {
+  color: #888;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
+
+.contract-button {
+  background: #d22b2b;
+  border-color: #d22b2b;
+}
+
+.contract-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 18px;
+  border: 1px solid #292929;
+}
+
+.contract-stat {
+  padding: 25px;
+  background: #141414;
+  border-right: 1px solid #292929;
+}
+
+.contract-stat:last-child {
+  border-right: 0;
+}
+
+.contract-stat strong {
+  display: block;
+  font-size: 22px;
+}
+
+.contract-stat span {
+  display: block;
+  margin-top: 7px;
+  color: #777;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+}
+
+.contract-findings {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.contract-finding {
+  padding: 28px;
+  background: #141414;
+  border: 1px solid #292929;
+}
+
+.contract-finding h3 {
+  margin: 22px 0 12px;
+  font-size: 23px;
+}
+
+.contract-finding p {
+  color: #aaa;
+  line-height: 1.65;
+}
+
+.inline-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.inline-link:hover {
+  color: #d22b2b;
+}
+
+@media (max-width: 750px) {
+
+    .attribute-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.explanation-grid {
+  grid-template-columns: 1fr;
+}
+
+.retention-flow {
+  grid-template-columns: 1fr;
+}
+
+.flow-arrow {
+  transform: rotate(90deg);
+  justify-self: center;
+}
+
+    .contract-hero {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contract-stats {
+  grid-template-columns: 1fr 1fr;
+}
+
+.contract-stat {
+  border-bottom: 1px solid #292929;
+}
+
+.contract-findings {
+  grid-template-columns: 1fr;
+}
+
+  .permit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .money-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .billing-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+
+  <div class="container">
+
+    <nav>
+
+      <a href="/" class="brand">
+        DEFLOCK <span>LEE'S SUMMIT</span>
+      </a>
+
+      <a href="/" class="back">
+        ← BACK HOME
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="eyebrow">
+      PUBLIC RECORDS
+    </div>
+
+    <h1>
+      FROM THE RECORDS
+    </h1>
+
+    <p class="lead">
+      These findings come from records involving Lee's Summit's use
+      of Flock technology. Wherever possible, the original document
+      is provided so you can read the source yourself.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section class="record-section" id="permits">
+
+  <div class="container">
+
+    <div class="record-label">
+      RECORD 01
+    </div>
+
+    <h2>
+      RIGHT-OF-WAY PERMITS
+    </h2>
+
+    <p class="record-intro">
+      City of Lee's Summit Public Works permits involving Flock ALPR
+      installations within public right-of-way.
+    </p>
+
+
+    <div class="permit-grid">
+
+      <article class="document-card">
+
+        <div class="date">
+          DECEMBER 20, 2023
+        </div>
+
+        <h3>
+          31-CAMERA RIGHT-OF-WAY PROJECT
+        </h3>
+
+        <div class="meta">
+          Permit PRPWRW20236558
+        </div>
+
+        <p>
+          Project address listed as 908 NW Pryor Rd.
+          The permit states that Flock Safety and the Lee's Summit
+          Police Department were seeking permits to place 31
+          solar-powered ALPR cameras in Lee's Summit right-of-way.
+        </p>
+
+        <a
+          class="document-button"
+          href="/documents/permits/31-camera-row-project-2023.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW ORIGINAL PERMIT
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div class="date">
+          JANUARY 5, 2024
+        </div>
+
+        <h3>
+          SW SCHERER PARKWAY
+        </h3>
+
+        <div class="meta">
+          Permit PRPWRW20240071
+        </div>
+
+        <p>
+          3975 SW Scherer Pkwy.
+          The permit describes placement of one solar-powered
+          ALPR camera in Lee's Summit right-of-way on behalf
+          of the Lee's Summit Police Department.
+        </p>
+
+        <a
+          class="document-button"
+          href="/documents/permits/scherer-pkwy-alpr-permit-2024.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW ORIGINAL PERMIT
+        </a>
+
+      </article>
+
+
+      <article class="document-card">
+
+        <div class="date">
+          JULY 19, 2024
+        </div>
+
+        <h3>
+          SE 3RD STREET
+        </h3>
+
+        <div class="meta">
+          Permit PRPWRW20243722
+        </div>
+
+        <p>
+          300 SE 3rd St.
+          The permit describes installation of one ALPR
+          on a 12-foot pole.
+        </p>
+
+        <a
+          class="document-button"
+          href="/documents/permits/se-3rd-st-alpr-permit-2024.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW ORIGINAL PERMIT
+        </a>
+
+      </article>
+
+
+      <article class="document-card private">
+
+        <div class="date">
+          JUNE 26, 2024
+        </div>
+
+        <h3>
+          WOODLAND SHORES
+        </h3>
+
+        <div class="meta">
+          Permit PRPWRW20243264
+        </div>
+
+        <p>
+          1705 NE Woodland Shores Ct.
+          This permit states that the ALPR was being installed
+          on behalf of the Woodland Shores Homeowners Association,
+          rather than LSPD.
+        </p>
+
+        <a
+          class="document-button"
+          href="/documents/permits/woodland-shores-alpr-permit-2024.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW ORIGINAL PERMIT
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="record-section" id="money">
+
+  <div class="container">
+
+    <div class="record-label">
+      RECORD 02
+    </div>
+
+    <h2>
+      THE MONEY
+    </h2>
+
+    <p class="record-intro">
+      The invoices and contract billing schedule show how Lee's Summit's
+      Flock program was billed during the first year and what the recurring
+      annual cost became afterward.
+    </p>
+
+
+    <div class="money-highlight">
+
+      <div class="big-number">
+        $909,150
+      </div>
+
+      <div class="big-number-label">
+        TOTAL LISTED CONTRACT VALUE
+      </div>
+
+    </div>
+
+
+    <div class="money-grid">
+
+      <article class="money-card">
+
+        <div class="date">
+          AUGUST 30, 2023
+        </div>
+
+        <h3>
+          FIRST PAYMENT
+        </h3>
+
+        <div class="money-amount">
+          $121,650
+        </div>
+
+        <p>
+          The first-year invoice includes 51 Falcon cameras,
+          professional installation charges, Advanced Search,
+          4 Falcon Flex units and 4 additional battery packs.
+        </p>
+
+      </article>
+
+
+      <article class="money-card">
+
+        <div class="date">
+          OCTOBER 30, 2023
+        </div>
+
+        <h3>
+          FIRST CAMERA VALIDATION
+        </h3>
+
+        <div class="money-amount">
+          $43,750
+        </div>
+
+        <p>
+          This invoice represents the next 25 percent of the first-year
+          billing after the first camera installation and validation.
+        </p>
+
+      </article>
+
+
+      <article class="money-card">
+
+        <div class="date">
+          APRIL 4, 2024
+        </div>
+
+        <h3>
+          FINAL SYSTEM ACCEPTANCE
+        </h3>
+
+        <div class="money-amount">
+          $43,750
+        </div>
+
+        <p>
+          This invoice represents the final 25 percent of the first-year
+          billing after final installation, validation and system acceptance.
+        </p>
+
+      </article>
+
+
+      <article class="money-card featured-money">
+
+        <div class="date">
+          OCTOBER 29, 2024
+        </div>
+
+        <h3>
+          YEAR 2 RECURRING COST
+        </h3>
+
+        <div class="money-amount">
+          $175,000
+        </div>
+
+        <p>
+          The invoice identifies this as Year 2 of the 60-month term.
+          It includes 51 Falcon cameras, Advanced Search,
+          4 Falcon Flex units and additional battery packs.
+        </p>
+
+      </article>
+
+    </div>
+
+
+    <div class="billing-summary">
+
+      <h3>
+        FIRST-YEAR BILLING
+      </h3>
+
+      <div class="billing-row">
+        <span>At contract signing</span>
+        <strong>$121,650</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>At first camera installation and validation</span>
+        <strong>$43,750</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>At final system acceptance</span>
+        <strong>$43,750</strong>
+      </div>
+
+      <div class="billing-row total-row">
+        <span>YEAR 1 TOTAL</span>
+        <strong>$209,150</strong>
+      </div>
+
+      <div class="billing-row recurring-row">
+        <span>ANNUAL RECURRING AFTER YEAR 1</span>
+        <strong>$175,000</strong>
+      </div>
+
+    </div>
+
+
+    <div class="source-box">
+
+      <h3>
+        READ THE ORIGINAL RECORDS
+      </h3>
+
+      <p>
+        The complete redacted invoice packet is available below.
+        The contract billing schedule is also available in the full agreement.
+      </p>
+
+      <div class="source-buttons">
+
+        <a
+          class="document-button"
+          href="/documents/flock-invoices-redacted.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW INVOICE PACKET
+        </a>
+
+        <a
+          class="document-button"
+          href="#contract"
+        >
+          VIEW CONTRACT SECTION
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="record-section" id="contract">
+
+  <div class="container">
+
+    <div class="record-label">
+      RECORD 03
+    </div>
+
+    <h2>
+      THE CONTRACT
+    </h2>
+
+    <p class="record-intro">
+      This is the complete agreement between the City of Lee's Summit
+      and Flock Group Inc. The contract covers pricing, the term of the
+      agreement, data use, retention, hardware ownership, installation,
+      renewal and other operating terms.
+    </p>
+
+
+    <div class="contract-hero">
+
+      <div>
+        <div class="contract-small">
+          AGREEMENT 2024-017
+        </div>
+
+        <div class="contract-total">
+          $909,150
+        </div>
+
+        <div class="contract-total-label">
+          LISTED CONTRACT TOTAL
+        </div>
+      </div>
+
+      <a
+        class="document-button contract-button"
+        href="/documents/flock-contract-2024-017.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        READ THE FULL 56-PAGE CONTRACT
+      </a>
+
+    </div>
+
+
+    <div class="contract-stats">
+
+      <div class="contract-stat">
+        <strong>60 MONTHS</strong>
+        <span>INITIAL TERM</span>
+      </div>
+
+      <div class="contract-stat">
+        <strong>24 MONTHS</strong>
+        <span>RENEWAL TERM</span>
+      </div>
+
+      <div class="contract-stat">
+        <strong>$175,000</strong>
+        <span>ANNUAL RECURRING COST</span>
+      </div>
+
+      <div class="contract-stat">
+        <strong>30 DAYS</strong>
+        <span>STANDARD RETENTION</span>
+      </div>
+
+    </div>
+
+
+    <div class="contract-findings">
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 39
+        </div>
+
+        <h3>
+          WHAT LEE'S SUMMIT BOUGHT
+        </h3>
+
+        <p>
+          The Order Form lists 51 Falcon cameras, 4 Falcon Flex units,
+          Advanced Search, additional battery packs and professional
+          installation services.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=39"
+          target="_blank"
+        >
+          VIEW PAGE 39 →
+        </a>
+
+      </article>
+
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 40
+        </div>
+
+        <h3>
+          HOW THE BILLING WORKS
+        </h3>
+
+        <p>
+          Year 1 is divided into a $121,650 payment at signing,
+          followed by two $43,750 payments tied to camera validation
+          and final system acceptance. Annual recurring charges after
+          Year 1 are listed at $175,000.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=40"
+          target="_blank"
+        >
+          VIEW PAGE 40 →
+        </a>
+
+      </article>
+
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 43
+        </div>
+
+        <h3>
+          30 DAYS DOESN'T NECESSARILY ME GONE
+        </h3>
+
+        <p>
+          The agreement says Flock deletes footage on a rolling
+          30-day basis, while the City is responsible for extracting,
+          downloading and archiving footage it wants to retain.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=43"
+          target="_blank"
+        >
+          VIEW PAGE 43 →
+        </a>
+
+      </article>
+
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 45
+        </div>
+
+        <h3>
+          MORE THAN A LICENSE PLATE
+        </h3>
+
+        <p>
+          The contract defines Vehicle Fingerprint as including
+          attributes such as vehicle type, make, color, registration
+          state, missing or covered plates, bumper stickers, decals,
+          roof racks and bike racks.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=45"
+          target="_blank"
+        >
+          VIEW PAGE 45 →
+        </a>
+
+      </article>
+
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 48
+        </div>
+
+        <h3>
+          WHO OWNS THE DATA
+        </h3>
+
+        <p>
+          The agreement says Customer Data belongs to the Customer
+          and that Flock does not own or sell that Customer Data.
+          It also allows Flock to anonymize data and use the resulting
+          anonymized data for purposes including machine-learning training.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=48"
+          target="_blank"
+        >
+          VIEW PAGE 48 →
+        </a>
+
+      </article>
+
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 51
+        </div>
+
+        <h3>
+          RENEWAL AND REMOVAL
+        </h3>
+
+        <p>
+          The agreement provides for automatic renewal unless either
+          party gives timely notice of non-renewal. It also states that
+          Flock will remove applicable hardware after termination or expiration.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=51"
+          target="_blank"
+        >
+          VIEW PAGE 51 →
+        </a>
+
+      </article>
+
+
+      <article class="contract-finding">
+
+        <div class="date">
+          PAGE 54
+        </div>
+
+        <h3>
+          FLOCK OWNS THE HARDWARE
+        </h3>
+
+        <p>
+          The contract states that Flock hardware remains the exclusive
+          property of Flock and that title does not pass to the City.
+        </p>
+
+        <a
+          class="inline-link"
+          href="/documents/flock-contract-2024-017.pdf#page=54"
+          target="_blank"
+        >
+          VIEW PAGE 54 →
+        </a>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="record-section" id="fingerprint">
+
+  <div class="container">
+
+    <div class="record-label">
+      RECORD 04
+    </div>
+
+    <h2>
+      VEHICLE FINGERPRINT
+    </h2>
+
+    <p class="record-intro">
+      The contract makes clear that Flock's system is designed to capture
+      more than a license plate number. It defines "Vehicle Fingerprint"
+      as a collection of identifying vehicle characteristics.
+    </p>
+
+
+    <div class="feature-highlight">
+
+      <div class="feature-label">
+        CONTRACT PAGE 45
+      </div>
+
+      <h3>
+        WHAT CAN BE CAPTURED?
+      </h3>
+
+      <div class="attribute-grid">
+
+        <div class="attribute">VEHICLE TYPE</div>
+        <div class="attribute">MAKE</div>
+        <div class="attribute">COLOR</div>
+        <div class="attribute">REGISTRATION STATE</div>
+        <div class="attribute">MISSING / COVERED PLATES</div>
+        <div class="attribute">BUMPER STICKERS</div>
+        <div class="attribute">DECALS</div>
+        <div class="attribute">ROOF RACKS</div>
+        <div class="attribute">BIKE RACKS</div>
+
+      </div>
+
+    </div>
+
+
+    <div class="explanation-grid">
+
+      <div class="explanation-card">
+
+        <div class="date">
+          WHAT THE CONTRACT SAYS
+        </div>
+
+        <h3>
+          IT IS NOT LIMITED TO THE PLATE
+        </h3>
+
+        <p>
+          The agreement defines Vehicle Fingerprint as unique vehicular
+          attributes captured through the service. Those attributes include
+          vehicle type, make, color, registration state, missing or covered
+          plates, bumper stickers, decals, roof racks and bike racks.
+        </p>
+
+      </div>
+
+
+      <div class="explanation-card">
+
+        <div class="date">
+          WHY THIS MATTERS
+        </div>
+
+        <h3>
+          A VEHICLE CAN BE SEARCHED BY CHARACTERISTICS
+        </h3>
+
+        <p>
+          The contract describes a system capable of using identifying
+          vehicle characteristics beyond the license plate itself.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="source-box">
+
+      <h3>
+        READ THE SOURCE
+      </h3>
+
+      <p>
+        Vehicle Fingerprint is defined in Section 1.14 of the Master
+        Services Agreement on page 45 of the contract.
+      </p>
+
+      <a
+        class="document-button"
+        href="/documents/flock-contract-2024-017.pdf#page=45"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        VIEW CONTRACT PAGE 45
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="record-section" id="retention">
+
+  <div class="container">
+
+    <div class="record-label">
+      RECORD 05
+    </div>
+
+    <h2>
+      DATA RETENTION
+    </h2>
+
+    <p class="record-intro">
+      The Order Form lists a 30-day retention period. But the Master
+      Services Agreement also explains what can happen before that
+      rolling deletion occurs.
+    </p>
+
+
+    <div class="retention-highlight">
+
+      <div class="retention-number">
+        30 DAYS
+      </div>
+
+      <div class="retention-label">
+        RETENTION PERIOD LISTED ON THE ORDER FORM
+      </div>
+
+    </div>
+
+
+    <div class="retention-flow">
+
+      <div class="flow-step">
+
+        <div class="flow-number">
+          01
+        </div>
+
+        <h3>
+          FLOCK STORES THE FOOTAGE
+        </h3>
+
+        <p>
+          The contract provides access to footage through the Flock
+          Services during the retention period.
+        </p>
+
+      </div>
+
+
+      <div class="flow-arrow">
+        →
+      </div>
+
+
+      <div class="flow-step">
+
+        <div class="flow-number">
+          02
+        </div>
+
+        <h3>
+          ROLLING 30-DAY DELETION
+        </h3>
+
+        <p>
+          The agreement says Flock deletes footage on a rolling
+          30-day basis unless otherwise stated on the Order Form.
+        </p>
+
+      </div>
+
+
+      <div class="flow-arrow">
+        →
+      </div>
+
+
+      <div class="flow-step">
+
+        <div class="flow-number">
+          03
+        </div>
+
+        <h3>
+          THE CITY CAN ARCHIVE IT
+        </h3>
+
+        <p>
+          The agreement says the Customer is responsible for extracting,
+          downloading and archiving footage it wants to retain on its
+          own storage devices.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="retention-note">
+
+      <div class="date">
+        IMPORTANT DISTINCTION
+      </div>
+
+      <h3>
+        "30 DAYS" DOES NOT MEAN EVERY COPY MUST DISAPPEAR AFTER 30 DAYS.
+      </h3>
+
+      <p>
+        The contract describes a 30-day rolling deletion period within
+        Flock's system while separately allowing the Customer to extract,
+        download and archive footage.
+      </p>
+
+    </div>
+
+
+    <div class="source-box">
+
+      <h3>
+        READ THE SOURCE
+      </h3>
+
+      <p>
+        The 30-day retention period appears on the Order Form, and the
+        Master Services Agreement explains the City's responsibility for
+        extracting and archiving footage.
+      </p>
+
+      <div class="source-buttons">
+
+        <a
+          class="document-button"
+          href="/documents/flock-contract-2024-017.pdf#page=39"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW ORDER FORM
+        </a>
+
+        <a
+          class="document-button"
+          href="/documents/flock-contract-2024-017.pdf#page=43"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW RETENTION LANGUAGE
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+</body>
+
+</html>

@@ -2,24 +2,40 @@
 const findings = [
   {
     number: "01",
-    title: "THE CONTRACT",
-    text: "Lee's Summit's five-year Flock agreement lists a total contract value of $909,150."
+    title: "RIGHT-OF-WAY PERMITS",
+    text: "City records show Flock ALPR installations in Lee's Summit public right-of-way.",
+    href: "/records#permits"
   },
   {
     number: "02",
-    title: "VEHICLE FINGERPRINT",
-    text: "The technology can identify characteristics beyond a plate number, including make, color, decals and vehicle accessories."
+    title: "THE MONEY",
+    text: "Invoices and contract documents show the costs behind Lee's Summit's Flock program.",
+    href: "/records#money"
   },
   {
     number: "03",
+    title: "THE CONTRACT",
+    text: "The five-year agreement lists a total contract value of $909,150.",
+    href: "/records#contract"
+  },
+  {
+    number: "04",
+    title: "VEHICLE FINGERPRINT",
+    text: "The contract describes technology capable of identifying more than just a license plate.",
+    href: "/records#fingerprint"
+  },
+  {
+    number: "05",
     title: "DATA RETENTION",
-    text: "Flock's standard retention period is 30 days, while records can also be downloaded and archived."
+    text: "Flock's standard retention period is 30 days, while records can also be downloaded and archived.",
+    href: "/records#retention"
   }
 ];
 ---
 
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
@@ -197,6 +213,14 @@ const findings = [
       border: 1px solid #292929;
       padding: 30px;
       min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      transition: .15s ease;
+    }
+
+    .record:hover {
+      border-color: #d22b2b;
+      transform: translateY(-2px);
     }
 
     .record-number {
@@ -216,6 +240,18 @@ const findings = [
       line-height: 1.6;
     }
 
+    .record-link {
+      margin-top: auto;
+      padding-top: 22px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .8px;
+    }
+
+    .record-link span {
+      color: #d22b2b;
+    }
+
     .mission {
       background: #f1f1ee;
       color: #111;
@@ -227,152 +263,124 @@ const findings = [
       line-height: 1.7;
     }
 
+    .involved-intro {
+      max-width: 720px;
+      color: #aaa;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .involved-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .involved-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 350px;
+      padding: 32px;
+      background: #141414;
+      border: 1px solid #2c2c2c;
+    }
+
+    .card-number {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .involved-card h3 {
+      margin: 55px 0 16px;
+      font-size: 25px;
+    }
+
+    .involved-card p {
+      color: #aaa;
+      line-height: 1.65;
+    }
+
+    .action-link {
+      margin-top: auto;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .featured-card {
+      background: #d22b2b;
+      border-color: #d22b2b;
+    }
+
+    .featured-card .card-number,
+    .featured-card p {
+      color: white;
+    }
+
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .contact-button {
+      display: block;
+      padding: 13px 15px;
+      background: white;
+      color: #111;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .secondary-contact {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255,255,255,.6);
+    }
+
+    .meeting-callout {
+      margin-top: 16px;
+      padding: 38px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      background: #141414;
+      border-left: 5px solid #d22b2b;
+    }
+
+    .meeting-callout h3 {
+      margin: 7px 0 10px;
+      font-size: 25px;
+    }
+
+    .meeting-callout p {
+      max-width: 720px;
+      margin: 0;
+      color: #999;
+      line-height: 1.6;
+    }
+
+    .callout-label {
+      color: #d22b2b;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
     footer {
       padding: 45px 0;
       border-top: 1px solid #292929;
       color: #777;
       font-size: 13px;
     }
-.involved {
-  background: #0b0b0b;
-}
 
-.involved-intro {
-  max-width: 720px;
-  color: #aaa;
-  font-size: 19px;
-  line-height: 1.7;
-}
-
-.involved-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 40px;
-}
-
-.involved-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 350px;
-  padding: 32px;
-  background: #141414;
-  border: 1px solid #2c2c2c;
-}
-
-.involved-card:hover {
-  border-color: #555;
-}
-
-.card-number {
-  color: #d22b2b;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
-
-.involved-card h3 {
-  margin: 55px 0 16px;
-  font-size: 25px;
-  letter-spacing: -0.7px;
-}
-
-.involved-card p {
-  margin: 0 0 30px;
-  color: #aaa;
-  line-height: 1.65;
-}
-
-.action-link {
-  margin-top: auto;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-}
-
-.action-link:hover {
-  color: #d22b2b;
-}
-
-.featured-card {
-  background: #d22b2b;
-  border-color: #d22b2b;
-}
-
-.featured-card .card-number,
-.featured-card p {
-  color: #fff;
-}
-
-.contact-options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: auto;
-}
-
-.contact-button {
-  display: block;
-  padding: 13px 15px;
-  background: #fff;
-  color: #111;
-  font-size: 12px;
-  font-weight: 900;
-  text-align: center;
-  letter-spacing: 0.5px;
-}
-
-.secondary-contact {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.6);
-}
-
-.meeting-callout {
-  margin-top: 16px;
-  padding: 38px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  background: #141414;
-  border-left: 5px solid #d22b2b;
-}
-
-.meeting-callout h3 {
-  margin: 7px 0 10px;
-  font-size: 25px;
-}
-
-.meeting-callout p {
-  max-width: 720px;
-  margin: 0;
-  color: #999;
-  line-height: 1.6;
-}
-
-.callout-label {
-  color: #d22b2b;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 2px;
-}
     @media (max-width: 800px) {
-		.involved-grid {
-  grid-template-columns: 1fr;
-}
-
-.involved-card {
-  min-height: 290px;
-}
-
-.meeting-callout {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 30px;
-}
       .nav-links {
         display: none;
       }
@@ -382,7 +390,8 @@ const findings = [
       }
 
       .stats,
-      .records {
+      .records,
+      .involved-grid {
         grid-template-columns: 1fr;
       }
 
@@ -394,6 +403,12 @@ const findings = [
       .hero {
         padding: 75px 0;
       }
+
+      .meeting-callout {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+      }
     }
   </style>
 </head>
@@ -403,15 +418,18 @@ const findings = [
 <header>
   <div class="container">
     <nav>
-      <div class="brand">
+
+      <a href="/" class="brand">
         DEFLOCK <span>LEE'S SUMMIT</span>
-      </div>
+      </a>
 
       <div class="nav-links">
-        <a href="#records">FROM THE RECORDS</a>
+        <a href="/records">FROM THE RECORDS</a>
         <a href="#mission">ABOUT</a>
         <a href="#involved">GET INVOLVED</a>
+        <a href="/contact">CONTACT</a>
       </div>
+
     </nav>
   </div>
 </header>
@@ -436,17 +454,19 @@ const findings = [
       DeFlock Lee's Summit is a citizen-led effort demanding an end
       to automated vehicle surveillance on our public streets.
       We're obtaining the records, publishing what we find,
-      and giving residents the information to decide for themselves.
+      and organizing residents who want the cameras removed.
     </p>
 
     <div class="buttons">
-      <a class="button primary" href="#records">
+
+      <a class="button primary" href="/records">
         READ THE RECORDS
       </a>
 
       <a class="button" href="#involved">
         GET INVOLVED
       </a>
+
     </div>
 
   </div>
@@ -474,7 +494,7 @@ const findings = [
 
     <div class="stat">
       <strong>55</strong>
-      <span>CAMERAS LISTED IN ORDER</span>
+      <span>UNITS LISTED IN ORDER FORM</span>
     </div>
 
   </div>
@@ -482,7 +502,7 @@ const findings = [
 </div>
 
 
-<section id="records">
+<section>
   <div class="container">
 
     <div class="section-heading">
@@ -490,15 +510,15 @@ const findings = [
       <h2>FROM THE RECORDS</h2>
 
       <p>
-        No rumors. No screenshots without context.
-        Read what the documents actually say.
+        No rumors. Read the documents for yourself.
       </p>
     </div>
 
     <div class="records">
 
       {findings.map((finding) => (
-        <article class="record">
+
+        <a href={finding.href} class="record">
 
           <div class="record-number">
             RECORD {finding.number}
@@ -508,7 +528,12 @@ const findings = [
 
           <p>{finding.text}</p>
 
-        </article>
+          <div class="record-link">
+            VIEW RECORD <span>→</span>
+          </div>
+
+        </a>
+
       ))}
 
     </div>
@@ -526,9 +551,9 @@ const findings = [
     </div>
 
     <p>
-      We believe Lee's Summit can investigate crime without
-      building a searchable record of ordinary people traveling
-      through their own community.
+      We believe Lee's Summit can investigate crime without building
+      a searchable record of ordinary people traveling through their
+      own community.
     </p>
 
     <p>
@@ -541,118 +566,133 @@ const findings = [
 </section>
 
 
-<section id="involved" class="involved">
+<section id="involved">
   <div class="container">
 
     <div class="section-heading">
+
       <small>THIS TAKES PEOPLE</small>
+
       <h2>GET INVOLVED.</h2>
 
       <p class="involved-intro">
-        You don't have to be an expert on ALPR technology to get involved.
+        You don't have to be an expert on ALPR technology.
         Show up, ask questions, read the records, and help make sure
         Lee's Summit residents are heard.
       </p>
+
     </div>
+
 
     <div class="involved-grid">
 
-  <div class="involved-card">
-    <div class="card-number">01</div>
+      <div class="involved-card">
 
-    <h3>JOIN THE COMMUNITY</h3>
+        <div class="card-number">01</div>
 
-    <p>
-      Join the DeFlock Lee's Summit Facebook group to connect with
-      other residents, discuss the records we're finding, and help
-      organize local efforts.
-    </p>
+        <h3>JOIN THE COMMUNITY</h3>
 
-    <a
-      class="action-link"
-      href="https://www.facebook.com/share/g/1F9SxUd93S/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      JOIN THE FACEBOOK GROUP →
-    </a>
-  </div>
+        <p>
+          Join the DeFlock Lee's Summit Facebook group to connect
+          with other residents and help organize local efforts.
+        </p>
 
+        <a
+          class="action-link"
+          href="https://www.facebook.com/share/g/1F9SxUd93S/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          JOIN THE FACEBOOK GROUP →
+        </a>
 
-  <div class="involved-card">
-    <div class="card-number">02</div>
-
-    <h3>FOLLOW THE PAGE</h3>
-
-    <p>
-      Follow the DeFlock Lee's Summit Facebook page for records,
-      updates, meeting information, and new findings as we get them.
-    </p>
-
-    <a
-      class="action-link"
-      href="https://www.facebook.com/profile.php?id=61592899809324"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      FOLLOW DEFLOCK LEE'S SUMMIT →
-    </a>
-  </div>
+      </div>
 
 
-  <div class="involved-card featured-card">
-    <div class="card-number">03</div>
+      <div class="involved-card">
 
-    <h3>READY TO DO MORE?</h3>
+        <div class="card-number">02</div>
 
-    <p>
-      Want to speak at City Hall, help review records, attend meetings,
-      make signs, volunteer, or share information with us? Get in touch.
-    </p>
+        <h3>FOLLOW THE PAGE</h3>
 
-    <div class="contact-options">
+        <p>
+          Follow the public page for records, updates, meeting
+          information and new findings.
+        </p>
 
-      <a
-        class="contact-button"
-        href="mailto:contact@deflockls.com"
-      >
-        contact@deflockls.com
-      </a>
+        <a
+          class="action-link"
+          href="https://www.facebook.com/profile.php?id=61592899809324"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          FOLLOW DEFLOCK LEE'S SUMMIT →
+        </a>
 
-      <a
-        class="contact-button secondary-contact"
-        href="https://www.facebook.com/profile.php?id=61592899809324"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        CONTACT US ON FACEBOOK
-      </a>
+      </div>
+
+
+      <div class="involved-card featured-card">
+
+        <div class="card-number">03</div>
+
+        <h3>READY TO DO MORE?</h3>
+
+        <p>
+          Want to speak at City Hall, review records, attend meetings,
+          make signs, volunteer or share information?
+        </p>
+
+        <div class="contact-options">
+
+          <a
+            class="contact-button"
+            href="/contact"
+          >
+            CONTACT US
+          </a>
+
+          <a
+            class="contact-button secondary-contact"
+            href="mailto:contact@deflockls.com"
+          >
+            contact@deflockls.com
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
-  </div>
-
-</div>
 
 
     <div class="meeting-callout">
-      <div>
-        <span class="callout-label">SHOW UP</span>
 
-        <h3>YOUR VOICE MATTERS AT CITY HALL.</h3>
+      <div>
+
+        <span class="callout-label">
+          SHOW UP
+        </span>
+
+        <h3>
+          YOUR VOICE MATTERS AT CITY HALL.
+        </h3>
 
         <p>
           We're looking for Lee's Summit residents willing to attend
-          City Council and other public meetings, speak during public
-          comment, or simply be there in support.
+          public meetings, speak during public comment, or simply
+          show up in support.
         </p>
+
       </div>
 
       <a
         class="button primary"
-        href="mailto:contact@deflockls.com?subject=I%20Want%20to%20Get%20Involved"
+        href="/contact"
       >
         I WANT TO HELP
       </a>
+
     </div>
 
   </div>
@@ -668,4 +708,5 @@ const findings = [
 </footer>
 
 </body>
+
 </html>
