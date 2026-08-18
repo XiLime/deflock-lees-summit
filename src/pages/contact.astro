@@ -1,0 +1,345 @@
+---
+---
+
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Contact | DeFlock Lee's Summit</title>
+
+  <meta
+    name="description"
+    content="Contact DeFlock Lee's Summit, volunteer, share information, or get involved."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #0b0b0b;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(900px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    header {
+      border-bottom: 1px solid #292929;
+    }
+
+    nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 900;
+      font-size: 21px;
+    }
+
+    .brand span {
+      color: #d22b2b;
+    }
+
+    .back {
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    main {
+      padding: 80px 0 110px;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 18px;
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: .95;
+      letter-spacing: -4px;
+    }
+
+    .intro {
+      max-width: 650px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 45px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+    }
+
+    .form-panel,
+    .info-panel {
+      background: #141414;
+      border: 1px solid #292929;
+      padding: 32px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      margin-bottom: 22px;
+      padding: 14px;
+      background: #0b0b0b;
+      border: 1px solid #444;
+      color: white;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      padding: 16px;
+      background: #d22b2b;
+      color: white;
+      font-weight: 900;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b82323;
+    }
+
+    .info-panel h2 {
+      margin-top: 0;
+    }
+
+    .info-panel p {
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    .email {
+      color: #fff !important;
+      font-weight: 800;
+    }
+
+    @media (max-width: 700px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<header>
+  <div class="container">
+
+    <nav>
+
+      <a href="/" class="brand">
+        DEFLOCK <span>LEE'S SUMMIT</span>
+      </a>
+
+      <a href="/" class="back">
+        ← BACK HOME
+      </a>
+
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <div class="container">
+
+    <div class="eyebrow">
+      GET INVOLVED
+    </div>
+
+    <h1>LET'S TALK.</h1>
+
+    <p class="intro">
+      Want to help? Have information we should look into?
+      Interested in speaking at a public meeting?
+      Send us a message.
+    </p>
+
+
+    <div class="contact-layout">
+
+      <div class="form-panel">
+
+        <!-- CONTACT FORM STARTS HERE -->
+
+        <form
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+
+          <!-- WEB3FORMS ACCESS KEY -->
+          <input
+            type="hidden"
+            name="access_key"
+            value="14fcf2ac-707b-4b2a-906e-ee800f1aa0d7"
+          />
+
+          <input
+            type="hidden"
+            name="subject"
+            value="New DeFlock Lee's Summit Website Message"
+          />
+
+          <input
+            type="hidden"
+            name="from_name"
+            value="DeFlock Lee's Summit Website"
+          />
+
+
+          <label for="name">
+            NAME
+          </label>
+
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+          />
+
+
+          <label for="email">
+            EMAIL
+          </label>
+
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+          />
+
+
+          <label for="reason">
+            WHAT ARE YOU REACHING OUT ABOUT?
+          </label>
+
+          <select
+            id="reason"
+            name="reason"
+          >
+
+            <option>Getting involved</option>
+
+            <option>Speaking at City Hall</option>
+
+            <option>Public records</option>
+
+            <option>Share information</option>
+
+            <option>Signs / materials</option>
+
+            <option>Media inquiry</option>
+
+            <option>Other</option>
+
+          </select>
+
+
+          <label for="message">
+            MESSAGE
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            required
+          ></textarea>
+
+
+          <!-- SIMPLE SPAM TRAP -->
+          <input
+            type="checkbox"
+            name="botcheck"
+            style="display:none"
+          />
+
+
+          <button type="submit">
+            SEND MESSAGE
+          </button>
+
+        </form>
+
+        <!-- CONTACT FORM ENDS HERE -->
+
+      </div>
+
+
+      <aside class="info-panel">
+
+        <h2>OTHER WAYS TO REACH US</h2>
+
+        <p>
+          You can also contact DeFlock Lee's Summit directly:
+        </p>
+
+        <p class="email">
+          <a href="mailto:contact@deflockls.com">
+            contact@deflockls.com
+          </a>
+        </p>
+
+        <p>
+          We're especially looking for Lee's Summit residents
+          interested in attending public meetings, reviewing records,
+          and helping organize locally.
+        </p>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+</main>
+
+</body>
+</html>
