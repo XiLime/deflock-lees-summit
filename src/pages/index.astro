@@ -1,4 +1,6 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 const findings = [
   {
     number: "01",
@@ -33,77 +35,12 @@ const findings = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-
-  <title>DeFlock Lee's Summit</title>
-
-  <meta
-    name="description"
-    content="DeFlock Lee's Summit is a citizen-led effort opposing automated license plate reader surveillance in Lee's Summit, Missouri."
-  />
-
+<BaseLayout
+  title="DeFlock Lee's Summit"
+  description="DeFlock Lee's Summit is a citizen-led effort opposing automated license plate reader surveillance in Lee's Summit, Missouri."
+  containerWidth="1120px"
+>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    header {
-      border-bottom: 1px solid #292929;
-      background: #0b0b0b;
-    }
-
-    nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .brand {
-      font-weight: 900;
-      letter-spacing: -1px;
-      font-size: 21px;
-    }
-
-    .brand span {
-      color: #d22b2b;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-    }
-
     .hero {
       padding: 105px 0 95px;
       border-bottom: 1px solid #292929;
@@ -373,18 +310,7 @@ const findings = [
       letter-spacing: 2px;
     }
 
-    footer {
-      padding: 45px 0;
-      border-top: 1px solid #292929;
-      color: #777;
-      font-size: 13px;
-    }
-
     @media (max-width: 800px) {
-      .nav-links {
-        display: none;
-      }
-
       h1 {
         letter-spacing: -3px;
       }
@@ -411,307 +337,274 @@ const findings = [
       }
     }
   </style>
-</head>
 
-<body>
+  <main>
 
-<header>
-  <div class="container">
-    <nav>
+  <section class="hero">
+    <div class="container">
 
-      <a href="/" class="brand">
-        DEFLOCK <span>LEE'S SUMMIT</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="/records">FROM THE RECORDS</a>
-		<a href="/sunshine">SUNSHINE TRACKER</a>
-        <a href="#mission">ABOUT</a>
-        <a href="#involved">GET INVOLVED</a>
-        <a href="/contact">CONTACT</a>
+      <div class="eyebrow">
+        CITIZEN-LED • LEE'S SUMMIT, MISSOURI
       </div>
 
-    </nav>
-  </div>
-</header>
-
-
-<main>
-
-<section class="hero">
-  <div class="container">
-
-    <div class="eyebrow">
-      CITIZEN-LED • LEE'S SUMMIT, MISSOURI
-    </div>
-
-    <h1>
-      OUR STREETS<br />
-      ARE NOT A<br />
-      DATABASE.
-    </h1>
-
-    <p>
-      DeFlock Lee's Summit is a citizen-led effort demanding an end
-      to automated vehicle surveillance on our public streets.
-      We're obtaining the records, publishing what we find,
-      and organizing residents who want the cameras removed.
-    </p>
-
-    <div class="buttons">
-
-  <a class="button primary" href="/records">
-    READ THE RECORDS
-  </a>
-
-  <a class="button" href="/sunshine">
-    TRACK OUR REQUESTS
-  </a>
-
-  <a class="button" href="#involved">
-    GET INVOLVED
-  </a>
-
-</div>
-
-  </div>
-</section>
-
-
-<div class="container">
-
-  <div class="stats">
-
-    <div class="stat">
-      <strong>$909,150</strong>
-      <span>5-YEAR CONTRACT TOTAL</span>
-    </div>
-
-    <div class="stat">
-      <strong>$175K</strong>
-      <span>RECURRING ANNUAL COST</span>
-    </div>
-
-    <div class="stat">
-      <strong>30 DAYS</strong>
-      <span>STANDARD FLOCK RETENTION</span>
-    </div>
-
-    <div class="stat">
-      <strong>55</strong>
-      <span>UNITS LISTED IN ORDER FORM</span>
-    </div>
-
-  </div>
-
-</div>
-
-
-<section>
-  <div class="container">
-
-    <div class="section-heading">
-      <small>PUBLIC RECORDS</small>
-      <h2>FROM THE RECORDS</h2>
+      <h1>
+        OUR STREETS<br />
+        ARE NOT A<br />
+        DATABASE.
+      </h1>
 
       <p>
-        No rumors. Read the documents for yourself.
+        DeFlock Lee's Summit is a citizen-led effort demanding an end
+        to automated vehicle surveillance on our public streets.
+        We're obtaining the records, publishing what we find,
+        and organizing residents who want the cameras removed.
       </p>
+
+      <div class="buttons">
+
+    <a class="button primary" href="/records">
+      READ THE RECORDS
+    </a>
+
+    <a class="button" href="/sunshine">
+      TRACK OUR REQUESTS
+    </a>
+
+    <a class="button" href="#involved">
+      GET INVOLVED
+    </a>
+
+  </div>
+
     </div>
+  </section>
 
-    <div class="records">
 
-      {findings.map((finding) => (
+  <div class="container">
 
-        <a href={finding.href} class="record">
+    <div class="stats">
 
-          <div class="record-number">
-            RECORD {finding.number}
-          </div>
+      <div class="stat">
+        <strong>$909,150</strong>
+        <span>5-YEAR CONTRACT TOTAL</span>
+      </div>
 
-          <h3>{finding.title}</h3>
+      <div class="stat">
+        <strong>$175K</strong>
+        <span>RECURRING ANNUAL COST</span>
+      </div>
 
-          <p>{finding.text}</p>
+      <div class="stat">
+        <strong>30 DAYS</strong>
+        <span>STANDARD FLOCK RETENTION</span>
+      </div>
 
-          <div class="record-link">
-            VIEW RECORD <span>→</span>
-          </div>
-
-        </a>
-
-      ))}
+      <div class="stat">
+        <strong>55</strong>
+        <span>UNITS LISTED IN ORDER FORM</span>
+      </div>
 
     </div>
 
   </div>
-</section>
 
 
-<section class="mission" id="mission">
-  <div class="container">
+  <section>
+    <div class="container">
 
-    <div class="section-heading">
-      <small>WHY WE'RE HERE</small>
-      <h2>THE MISSION IS SIMPLE.</h2>
+      <div class="section-heading">
+        <small>PUBLIC RECORDS</small>
+        <h2>FROM THE RECORDS</h2>
+
+        <p>
+          No rumors. Read the documents for yourself.
+        </p>
+      </div>
+
+      <div class="records">
+
+        {findings.map((finding) => (
+
+          <a href={finding.href} class="record">
+
+            <div class="record-number">
+              RECORD {finding.number}
+            </div>
+
+            <h3>{finding.title}</h3>
+
+            <p>{finding.text}</p>
+
+            <div class="record-link">
+              VIEW RECORD <span>→</span>
+            </div>
+
+          </a>
+
+        ))}
+
+      </div>
+
     </div>
-
-    <p>
-      We believe Lee's Summit can investigate crime without building
-      a searchable record of ordinary people traveling through their
-      own community.
-    </p>
-
-    <p>
-      We're asking the City of Lee's Summit to end its automated
-      license plate reader program and remove these cameras from
-      the public right-of-way.
-    </p>
-
-  </div>
-</section>
+  </section>
 
 
-<section id="involved">
-  <div class="container">
+  <section class="mission" id="mission">
+    <div class="container">
 
-    <div class="section-heading">
+      <div class="section-heading">
+        <small>WHY WE'RE HERE</small>
+        <h2>THE MISSION IS SIMPLE.</h2>
+      </div>
 
-      <small>THIS TAKES PEOPLE</small>
+      <p>
+        We believe Lee's Summit can investigate crime without building
+        a searchable record of ordinary people traveling through their
+        own community.
+      </p>
 
-      <h2>GET INVOLVED.</h2>
-
-      <p class="involved-intro">
-        You don't have to be an expert on ALPR technology.
-        Show up, ask questions, read the records, and help make sure
-        Lee's Summit residents are heard.
+      <p>
+        We're asking the City of Lee's Summit to end its automated
+        license plate reader program and remove these cameras from
+        the public right-of-way.
       </p>
 
     </div>
+  </section>
 
 
-    <div class="involved-grid">
+  <section id="involved">
+    <div class="container">
 
-      <div class="involved-card">
+      <div class="section-heading">
 
-        <div class="card-number">01</div>
+        <small>THIS TAKES PEOPLE</small>
 
-        <h3>JOIN THE COMMUNITY</h3>
+        <h2>GET INVOLVED.</h2>
 
-        <p>
-          Join the DeFlock Lee's Summit Facebook group to connect
-          with other residents and help organize local efforts.
+        <p class="involved-intro">
+          You don't have to be an expert on ALPR technology.
+          Show up, ask questions, read the records, and help make sure
+          Lee's Summit residents are heard.
         </p>
-
-        <a
-          class="action-link"
-          href="https://www.facebook.com/share/g/1F9SxUd93S/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          JOIN THE FACEBOOK GROUP →
-        </a>
 
       </div>
 
 
-      <div class="involved-card">
+      <div class="involved-grid">
 
-        <div class="card-number">02</div>
+        <div class="involved-card">
 
-        <h3>FOLLOW THE PAGE</h3>
+          <div class="card-number">01</div>
 
-        <p>
-          Follow the public page for records, updates, meeting
-          information and new findings.
-        </p>
+          <h3>JOIN THE COMMUNITY</h3>
 
-        <a
-          class="action-link"
-          href="https://www.facebook.com/profile.php?id=61592899809324"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          FOLLOW DEFLOCK LEE'S SUMMIT →
-        </a>
-
-      </div>
-
-
-      <div class="involved-card featured-card">
-
-        <div class="card-number">03</div>
-
-        <h3>READY TO DO MORE?</h3>
-
-        <p>
-          Want to speak at City Hall, review records, attend meetings,
-          make signs, volunteer or share information?
-        </p>
-
-        <div class="contact-options">
+          <p>
+            Join the DeFlock Lee's Summit Facebook group to connect
+            with other residents and help organize local efforts.
+          </p>
 
           <a
-            class="contact-button"
-            href="/contact"
+            class="action-link"
+            href="https://www.facebook.com/share/g/1F9SxUd93S/"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            CONTACT US
+            JOIN THE FACEBOOK GROUP →
           </a>
 
+        </div>
+
+
+        <div class="involved-card">
+
+          <div class="card-number">02</div>
+
+          <h3>FOLLOW THE PAGE</h3>
+
+          <p>
+            Follow the public page for records, updates, meeting
+            information and new findings.
+          </p>
+
           <a
-            class="contact-button secondary-contact"
-            href="mailto:contact@deflockls.com"
+            class="action-link"
+            href="https://www.facebook.com/profile.php?id=61592899809324"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            contact@deflockls.com
+            FOLLOW DEFLOCK LEE'S SUMMIT →
           </a>
+
+        </div>
+
+
+        <div class="involved-card featured-card">
+
+          <div class="card-number">03</div>
+
+          <h3>READY TO DO MORE?</h3>
+
+          <p>
+            Want to speak at City Hall, review records, attend meetings,
+            make signs, volunteer or share information?
+          </p>
+
+          <div class="contact-options">
+
+            <a
+              class="contact-button"
+              href="/contact"
+            >
+              CONTACT US
+            </a>
+
+            <a
+              class="contact-button secondary-contact"
+              href="mailto:contact@deflockls.com"
+            >
+              contact@deflockls.com
+            </a>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
 
+      <div class="meeting-callout">
 
-    <div class="meeting-callout">
+        <div>
 
-      <div>
+          <span class="callout-label">
+            SHOW UP
+          </span>
 
-        <span class="callout-label">
-          SHOW UP
-        </span>
+          <h3>
+            YOUR VOICE MATTERS AT CITY HALL.
+          </h3>
 
-        <h3>
-          YOUR VOICE MATTERS AT CITY HALL.
-        </h3>
+          <p>
+            We're looking for Lee's Summit residents willing to attend
+            public meetings, speak during public comment, or simply
+            show up in support.
+          </p>
 
-        <p>
-          We're looking for Lee's Summit residents willing to attend
-          public meetings, speak during public comment, or simply
-          show up in support.
-        </p>
+        </div>
+
+        <a
+          class="button primary"
+          href="/contact"
+        >
+          I WANT TO HELP
+        </a>
 
       </div>
 
-      <a
-        class="button primary"
-        href="/contact"
-      >
-        I WANT TO HELP
-      </a>
-
     </div>
+  </section>
 
-  </div>
-</section>
+  </main>
 
-</main>
-
-
-<footer>
-  <div class="container">
-    DeFlock Lee's Summit • Lee's Summit, Missouri
-  </div>
-</footer>
-
-</body>
-
-</html>
+</BaseLayout>

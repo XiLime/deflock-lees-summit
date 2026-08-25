@@ -1,4 +1,6 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 const requests = [
   {
     id: "2026-275",
@@ -122,72 +124,12 @@ const requests = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-
-  <title>Sunshine Request Tracker | DeFlock Lee's Summit</title>
-
-  <meta
-    name="description"
-    content="Track public records requests involving Lee's Summit's use of Flock Safety and automated license plate readers."
-  />
-
+<BaseLayout
+  title="Sunshine Request Tracker | DeFlock Lee's Summit"
+  description="Track public records requests involving Lee's Summit's use of Flock Safety and automated license plate readers."
+  containerWidth="1050px"
+>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: min(1050px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    header {
-      border-bottom: 1px solid #292929;
-    }
-
-    nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      font-size: 21px;
-      font-weight: 900;
-    }
-
-    .brand span {
-      color: #d22b2b;
-    }
-
-    .back {
-      font-size: 12px;
-      font-weight: 800;
-    }
-
     .hero {
       padding: 75px 0 65px;
       border-bottom: 1px solid #292929;
@@ -465,196 +407,175 @@ const requests = [
       }
     }
   </style>
-</head>
 
-<body>
+  <main>
 
-<header>
-  <div class="container">
-    <nav>
+  <section class="hero">
+    <div class="container">
 
-      <a href="/" class="brand">
-        DEFLOCK <span>LEE'S SUMMIT</span>
-      </a>
-
-      <a href="/" class="back">
-        ← BACK HOME
-      </a>
-
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<section class="hero">
-  <div class="container">
-
-    <div class="eyebrow">
-      MISSOURI SUNSHINE LAW
-    </div>
-
-    <h1>
-      REQUEST TRACKER
-    </h1>
-
-    <p class="intro">
-      This page tracks public records requests involving Lee's Summit's
-      use of Flock Safety and automated license plate reader technology.
-      Requests, responses and produced records will be added as they are received.
-    </p>
-
-  </div>
-</section>
-
-<div class="container">
-
-  <div class="request-list">
-
-    {requests.map((request) => (
-
-      <article class="request-card">
-
-        <div class="request-head">
-
-          <div class="request-top">
-
-            <div class="request-id">
-              REQUEST {request.id}
-            </div>
-
-            <div class={`status ${request.statusClass}`}>
-              {request.status}
-            </div>
-
-          </div>
-
-          <h2>{request.title}</h2>
-
-          <div class="request-date">
-            SUBMITTED {request.date}
-          </div>
-
-        </div>
-
-
-        <div class="request-summary">
-          {request.summary}
-        </div>
-
-
-        <div class="timeline">
-
-          <div class="timeline-title">
-            REQUEST TIMELINE
-          </div>
-
-          
-    <div class="documents">
-
-  <div class="documents-header">
-    <span class="documents-label">PUBLIC DOCUMENTS</span>
-    <span class="documents-note">Personal information redacted</span>
-  </div>
-
-  <div class="document-actions">
-
-    <a
-      class="document-card request-document"
-      href={request.requestPdf}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div class="document-icon">PDF</div>
-
-      <div class="document-info">
-        <span class="document-type">ORIGINAL REQUEST</span>
-        <strong>Read the Sunshine Request</strong>
-        <span class="document-open">OPEN DOCUMENT →</span>
+      <div class="eyebrow">
+        MISSOURI SUNSHINE LAW
       </div>
-    </a>
 
-    <a
-      class="document-card response-document"
-      href={request.responsePdf}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <div class="document-icon">PDF</div>
+      <h1>
+        REQUEST TRACKER
+      </h1>
 
-      <div class="document-info">
-        <span class="document-type">CITY RESPONSE</span>
-        <strong>Read the City's Response</strong>
-        <span class="document-open">OPEN DOCUMENT →</span>
-      </div>
-    </a>
-
-    {request.officialFormPdf && (
-      <a
-        class="document-card official-document"
-        href={request.officialFormPdf}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="document-icon">PDF</div>
-
-        <div class="document-info">
-          <span class="document-type">OFFICIAL CITY FORM</span>
-          <strong>View the Official Records Request Form</strong>
-          <span class="document-open">OPEN DOCUMENT →</span>
-        </div>
-      </a>
-    )}
-
-  </div>
-
-</div>
-
-          {request.timeline.map((event) => (
-
-            <div class="timeline-item">
-
-              <div class="timeline-date">
-                {event.date}
-              </div>
-
-              <div class="timeline-content">
-
-                <h3>{event.title}</h3>
-
-                <p>{event.text}</p>
-
-              </div>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </article>
-
-    ))}
-
-
-    <div class="notice">
-
-      <strong>
-        ORIGINAL DOCUMENTS
-      </strong>
-
-      <p>
-        Public copies of the original requests and City responses will be
-        added after personal information is removed.
+      <p class="intro">
+        This page tracks public records requests involving Lee's Summit's
+        use of Flock Safety and automated license plate reader technology.
+        Requests, responses and produced records will be added as they are received.
       </p>
 
     </div>
+  </section>
+
+  <div class="container">
+
+    <div class="request-list">
+
+      {requests.map((request) => (
+
+        <article class="request-card">
+
+          <div class="request-head">
+
+            <div class="request-top">
+
+              <div class="request-id">
+                REQUEST {request.id}
+              </div>
+
+              <div class={`status ${request.statusClass}`}>
+                {request.status}
+              </div>
+
+            </div>
+
+            <h2>{request.title}</h2>
+
+            <div class="request-date">
+              SUBMITTED {request.date}
+            </div>
+
+          </div>
+
+
+          <div class="request-summary">
+            {request.summary}
+          </div>
+
+
+          <div class="timeline">
+
+            <div class="timeline-title">
+              REQUEST TIMELINE
+            </div>
+
+            <div class="documents">
+
+              <div class="documents-header">
+                <span class="documents-label">PUBLIC DOCUMENTS</span>
+                <span class="documents-note">Personal information redacted</span>
+              </div>
+
+              <div class="document-actions">
+
+                <a
+                  class="document-card request-document"
+                  href={request.requestPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="document-icon">PDF</div>
+
+                  <div class="document-info">
+                    <span class="document-type">ORIGINAL REQUEST</span>
+                    <strong>Read the Sunshine Request</strong>
+                    <span class="document-open">OPEN DOCUMENT →</span>
+                  </div>
+                </a>
+
+                <a
+                  class="document-card response-document"
+                  href={request.responsePdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div class="document-icon">PDF</div>
+
+                  <div class="document-info">
+                    <span class="document-type">CITY RESPONSE</span>
+                    <strong>Read the City's Response</strong>
+                    <span class="document-open">OPEN DOCUMENT →</span>
+                  </div>
+                </a>
+
+                {request.officialFormPdf && (
+                  <a
+                    class="document-card official-document"
+                    href={request.officialFormPdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div class="document-icon">PDF</div>
+
+                    <div class="document-info">
+                      <span class="document-type">OFFICIAL CITY FORM</span>
+                      <strong>View the Official Records Request Form</strong>
+                      <span class="document-open">OPEN DOCUMENT →</span>
+                    </div>
+                  </a>
+                )}
+
+              </div>
+
+            </div>
+
+            {request.timeline.map((event) => (
+
+              <div class="timeline-item">
+
+                <div class="timeline-date">
+                  {event.date}
+                </div>
+
+                <div class="timeline-content">
+
+                  <h3>{event.title}</h3>
+
+                  <p>{event.text}</p>
+
+                </div>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </article>
+
+      ))}
+
+
+      <div class="notice">
+
+        <strong>
+          ORIGINAL DOCUMENTS
+        </strong>
+
+        <p>
+          Public copies of the original requests and City responses will be
+          added after personal information is removed.
+        </p>
+
+      </div>
+
+    </div>
 
   </div>
 
-</div>
+  </main>
 
-</main>
-
-</body>
-</html>
+</BaseLayout>
