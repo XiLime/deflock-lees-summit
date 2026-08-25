@@ -8,6 +8,12 @@ const requests = [
     statusClass: "pending",
     summary:
       "A narrowly focused request for audit reports, audit summaries, compliance reviews, findings, violations, discrepancies, and corrective or disciplinary action relating to LSPD's use of Flock.",
+    requestPdf:
+      "/documents/sunshine/2026-08-24_audit_request_submission_PUBLIC.pdf",
+    responsePdf:
+      "/documents/sunshine/2026-08-24_audit_request_city_response_PUBLIC.pdf",
+    officialFormPdf:
+      "/documents/sunshine/2026-08-24_official_records_request_form_PUBLIC.pdf",
     timeline: [
       {
         date: "AUG 24",
@@ -30,6 +36,12 @@ const requests = [
     statusClass: "pending",
     summary:
       "Requested the policies and records supporting LSPD's statements about safeguards, Flock searches, retention, audits, hotlist alerts, expanded database access, outside-agency access, and the 2025 Annual Report.",
+    requestPdf:
+      "/documents/sunshine/2026-08-12_flock_policy_request_submission_PUBLIC.pdf",
+    responsePdf:
+      "/documents/sunshine/2026-08-13_flock_policy_city_response_PUBLIC.pdf",
+    officialFormPdf:
+      "/documents/sunshine/2026-08-12_official_records_request_form_PUBLIC.pdf",
     timeline: [
       {
         date: "AUG 12",
@@ -57,6 +69,10 @@ const requests = [
     statusClass: "pending",
     summary:
       "Requested records identifying who owns the cameras, who paid for them, costs, installation, contracts, funding, camera models and locations, administrators, policies and outside-agency access.",
+    requestPdf:
+      "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf",
+    responsePdf:
+      "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf",
     timeline: [
       {
         date: "AUG 10",
@@ -84,6 +100,12 @@ const requests = [
     statusClass: "closed",
     summary:
       "Requested Flock detections, photographs, plate reads, timestamps, locations, alerts, searches, audit logs and sharing records associated with a specific vehicle.",
+    requestPdf:
+      "/documents/sunshine/2026-08-07_vehicle_request_submission_PUBLIC.pdf",
+    responsePdf:
+      "/documents/sunshine/2026-08-10_vehicle_request_city_response_PUBLIC.pdf",
+    officialFormPdf:
+      "/documents/sunshine/2026-08-07_official_records_request_form_PUBLIC.pdf",
     timeline: [
       {
         date: "AUG 7",
@@ -303,6 +325,109 @@ const requests = [
       line-height: 1.6;
     }
 
+    .documents {
+      margin: 0 0 30px;
+      padding-top: 25px;
+      border-top: 1px solid #292929;
+    }
+
+    .documents-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 14px;
+    }
+
+    .documents-label {
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1.6px;
+      color: #fff;
+    }
+
+    .documents-note {
+      color: #666;
+      font-size: 11px;
+    }
+
+    .document-actions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .document-card {
+      min-height: 105px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      background: #1b1b1b;
+      border: 1px solid #383838;
+
+      transition:
+        transform .15s ease,
+        border-color .15s ease,
+        background .15s ease;
+    }
+
+    .document-card:hover {
+      transform: translateY(-2px);
+      background: #202020;
+      border-color: #d22b2b;
+    }
+
+    .document-icon {
+      width: 52px;
+      height: 60px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      background: #d22b2b;
+      color: white;
+
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .document-info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .document-type {
+      color: #d22b2b;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.3px;
+    }
+
+    .document-info strong {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.25;
+    }
+
+    .document-open {
+      margin-top: 4px;
+      color: #888;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .8px;
+    }
+
+    .document-card:hover .document-open {
+      color: #fff;
+    }
+
     .notice {
       margin-top: 30px;
       padding: 26px;
@@ -324,6 +449,10 @@ const requests = [
     @media (max-width: 700px) {
       .request-top {
         flex-direction: column;
+      }
+
+      .document-actions {
+        grid-template-columns: 1fr;
       }
 
       .timeline-item {
@@ -419,6 +548,67 @@ const requests = [
           <div class="timeline-title">
             REQUEST TIMELINE
           </div>
+
+          
+    <div class="documents">
+
+  <div class="documents-header">
+    <span class="documents-label">PUBLIC DOCUMENTS</span>
+    <span class="documents-note">Personal information redacted</span>
+  </div>
+
+  <div class="document-actions">
+
+    <a
+      class="document-card request-document"
+      href={request.requestPdf}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="document-icon">PDF</div>
+
+      <div class="document-info">
+        <span class="document-type">ORIGINAL REQUEST</span>
+        <strong>Read the Sunshine Request</strong>
+        <span class="document-open">OPEN DOCUMENT →</span>
+      </div>
+    </a>
+
+    <a
+      class="document-card response-document"
+      href={request.responsePdf}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div class="document-icon">PDF</div>
+
+      <div class="document-info">
+        <span class="document-type">CITY RESPONSE</span>
+        <strong>Read the City's Response</strong>
+        <span class="document-open">OPEN DOCUMENT →</span>
+      </div>
+    </a>
+
+    {request.officialFormPdf && (
+      <a
+        class="document-card official-document"
+        href={request.officialFormPdf}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="document-icon">PDF</div>
+
+        <div class="document-info">
+          <span class="document-type">OFFICIAL CITY FORM</span>
+          <strong>View the Official Records Request Form</strong>
+          <span class="document-open">OPEN DOCUMENT →</span>
+        </div>
+      </a>
+    )}
+
+  </div>
+
+</div>
 
           {request.timeline.map((event) => (
 
