@@ -251,6 +251,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   border-bottom: 1px solid #292929;
 }
 
+.record-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #0b0b0b;
+  border-bottom: 1px solid #292929;
+}
+
+.record-nav-links {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 14px 0;
+}
+
+.record-nav-links a {
+  flex-shrink: 0;
+  padding: 9px 14px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .8px;
+  color: #999;
+  border: 1px solid #292929;
+  white-space: nowrap;
+}
+
+.record-nav-links a:hover {
+  color: #fff;
+  border-color: #d22b2b;
+}
+
+.record-nav-links a span {
+  color: #d22b2b;
+  margin-right: 6px;
+}
+
 .eyebrow {
   color: #d22b2b;
   font-size: 12px;
@@ -557,6 +593,19 @@ h1 {
   </div>
 
 </section>
+
+
+<nav class="record-nav">
+  <div class="container">
+    <div class="record-nav-links">
+      <a href="#permits"><span>01</span>Permits</a>
+      <a href="#money"><span>02</span>The Money</a>
+      <a href="#contract"><span>03</span>The Contract</a>
+      <a href="#fingerprint"><span>04</span>Vehicle Fingerprint</a>
+      <a href="#retention"><span>05</span>Data Retention</a>
+    </div>
+  </div>
+</nav>
 
 
 <section class="record-section" id="permits">
@@ -1051,13 +1100,11 @@ h1 {
         </div>
 
         <h3>
-          30 DAYS DOESN'T NECESSARILY ME GONE
+          30 DAYS DOESN'T NECESSARILY MEAN GONE
         </h3>
 
         <p>
-          The agreement says Flock deletes footage on a rolling
-          30-day basis, while the City is responsible for extracting,
-          downloading and archiving footage it wants to retain.
+          The retention story gets its own deep dive in Record 05 below.
         </p>
 
         <a
@@ -1082,10 +1129,7 @@ h1 {
         </h3>
 
         <p>
-          The contract defines Vehicle Fingerprint as including
-          attributes such as vehicle type, make, color, registration
-          state, missing or covered plates, bumper stickers, decals,
-          roof racks and bike racks.
+          The full Vehicle Fingerprint breakdown is in Record 04 below.
         </p>
 
         <a
