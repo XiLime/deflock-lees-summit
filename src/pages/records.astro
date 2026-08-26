@@ -46,6 +46,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   letter-spacing: .7px;
 }
 
+.quote-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.quote-card {
+  padding: 22px;
+  background: #0b0b0b;
+  border: 1px solid #333;
+}
+
+.quote-text {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.quote-meta {
+  color: #777;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
 .explanation-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -526,6 +554,10 @@ h1 {
   grid-template-columns: 1fr;
 }
 
+.quote-grid {
+  grid-template-columns: 1fr;
+}
+
 .retention-flow {
   grid-template-columns: 1fr;
 }
@@ -603,6 +635,7 @@ h1 {
       <a href="#contract"><span>03</span>The Contract</a>
       <a href="#fingerprint"><span>04</span>Vehicle Fingerprint</a>
       <a href="#retention"><span>05</span>Data Retention</a>
+      <a href="#flock-audit"><span>06</span>Inside the System</a>
     </div>
   </div>
 </nav>
@@ -1495,6 +1528,401 @@ h1 {
           rel="noopener noreferrer"
         >
           VIEW RETENTION LANGUAGE
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="record-section" id="flock-audit">
+
+  <div class="container">
+
+    <div class="record-label">
+      RECORD 06
+    </div>
+
+    <h2>
+      INSIDE THE SYSTEM
+    </h2>
+
+    <p class="record-intro">
+      In August 2026, Lee's Summit resident Daniel Hardin obtained a set of
+      internal Flock Safety records through a Missouri Sunshine Law request:
+      one month of the department's own search audit log, its list of
+      custom watchlists, its alert configuration, and the full list of
+      outside organizations it trades camera data with. This is what's in them.
+    </p>
+
+
+    <div class="money-highlight">
+
+      <div class="big-number">
+        2,699
+      </div>
+
+      <div class="big-number-label">
+        LOGGED SEARCHES BY LSPD PERSONNEL, JUNE 27 &ndash; JULY 27, 2026
+      </div>
+
+    </div>
+
+
+    <div class="contract-stats">
+
+      <div class="contract-stat">
+        <strong>89</strong>
+        <span>DIFFERENT OFFICERS/USERS LOGGED</span>
+      </div>
+
+      <div class="contract-stat">
+        <strong>1,017</strong>
+        <span>MEDIAN NETWORKS REACHED PER SEARCH</span>
+      </div>
+
+      <div class="contract-stat">
+        <strong>6,266</strong>
+        <span>NETWORKS REACHED BY THE LARGEST SINGLE SEARCH</span>
+      </div>
+
+      <div class="contract-stat">
+        <strong>119</strong>
+        <span>SEARCHES BY DESCRIPTION, NO PLATE NEEDED</span>
+      </div>
+
+    </div>
+
+
+    <div class="explanation-grid">
+
+      <div class="explanation-card">
+
+        <div class="date">
+          HOW FAR A SEARCH REACHES
+        </div>
+
+        <h3>
+          MOST SEARCHES LEAVE LEE'S SUMMIT
+        </h3>
+
+        <p>
+          721 of the 2,699 logged searches returned exactly 2 networks &mdash;
+          matching the city's own two Flock camera groups (its Falcon
+          network and Falcon Flex units), suggesting those stayed local.
+          The remaining 1,841 searches (about 68%) reached further:
+          onto camera networks run by other agencies outside Lee's Summit,
+          sometimes well over a thousand of them at once.
+        </p>
+
+      </div>
+
+
+      <div class="explanation-card">
+
+        <div class="date">
+          FREEFORM / AI SEARCH
+        </div>
+
+        <h3>
+          SEARCHING BY DESCRIPTION, NOT JUST A PLATE
+        </h3>
+
+        <p>
+          119 searches in the log used Flock's "freeform" search type &mdash;
+          a natural-language, AI-powered search that finds vehicles by
+          description alone, with no license plate involved. This is the
+          real-world use of the "Vehicle Fingerprint" capability described
+          in the contract on <a class="inline-link" href="#fingerprint">Record 04</a>.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="feature-highlight">
+
+      <div class="feature-label">
+        FROM THE AUDIT LOG &mdash; ACTUAL SEARCH TEXT
+      </div>
+
+      <h3>
+        WHAT OFFICERS TYPED IN, NO PLATE ATTACHED
+      </h3>
+
+      <div class="quote-grid">
+
+        <div class="quote-card">
+          <p class="quote-text">&ldquo;black 2005-2008 Jeep Grand Cherokee with temporary tag&rdquo;</p>
+          <div class="quote-meta">LOGGED REASON: OBSTRUCTING THE POLICE</div>
+        </div>
+
+        <div class="quote-card">
+          <p class="quote-text">&ldquo;the front bumper of a white mazda suv no license plate&rdquo;</p>
+          <div class="quote-meta">LOGGED REASON: LARCENY/THEFT OFFENSES</div>
+        </div>
+
+        <div class="quote-card">
+          <p class="quote-text">&ldquo;black dodge ram with damaged front bumper&rdquo;</p>
+          <div class="quote-meta">LOGGED REASON: WANTED PERSON / US MARSHALS AOA</div>
+        </div>
+
+        <div class="quote-card">
+          <p class="quote-text">&ldquo;RED MUSTANG&rdquo;</p>
+          <div class="quote-meta">LOGGED REASON: MISSING/ENDANGERED PERSON</div>
+        </div>
+
+        <div class="quote-card">
+          <p class="quote-text">&ldquo;a blue 4-door sedan with rear window decal&rdquo;</p>
+          <div class="quote-meta">LOGGED REASON: STOLEN PROPERTY OFFENSES</div>
+        </div>
+
+        <div class="quote-card">
+          <p class="quote-text">&ldquo;DARK IN COLOR EXTENDED CAB PICKUP TRUCK&rdquo;</p>
+          <div class="quote-meta">LOGGED REASON: BURGLARY/BREAKING &amp; ENTERING</div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="billing-summary">
+
+      <h3>
+        SEARCH REASONS, MOST COMMON FIRST
+      </h3>
+
+      <div class="billing-row">
+        <span>Larceny/Theft Offenses</span>
+        <strong>268</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>Wanted Person (Arrest Warrant/Fugitive)</span>
+        <strong>225</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>Drugs/Narcotics</span>
+        <strong>184</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>Assault/Battery Offenses</span>
+        <strong>183</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>Motor Vehicle Theft/Stolen</span>
+        <strong>158</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>Welfare Check</span>
+        <strong>77</strong>
+      </div>
+
+      <div class="billing-row">
+        <span>Traffic Infraction</span>
+        <strong>73</strong>
+      </div>
+
+      <div class="billing-row recurring-row">
+        <span>Curfew/Loitering, Trespass, Disorderly Conduct and similar non-violent categories</span>
+        <strong>appear throughout the log too</strong>
+      </div>
+
+    </div>
+
+
+    <div class="explanation-grid">
+
+      <div class="explanation-card">
+
+        <div class="date">
+          NOT ALWAYS A TRAFFIC STOP
+        </div>
+
+        <h3>
+          A LEGAL TRUCK MEETUP, TRACKED ANYWAY
+        </h3>
+
+        <p>
+          Of the 109 searches logged under some form of "Traffic
+          Infraction," 15 were run by a single officer over one week and
+          labeled "TRUCK MEET GROUP" or "TRUCK MEET GROUP ORGANIZER" &mdash;
+          identifying attendees and the organizer of what appears to be a
+          truck enthusiast meetup, not a traffic violation. Some of those
+          individual lookups reached as many as 6,206 outside camera
+          networks.
+        </p>
+
+      </div>
+
+
+      <div class="explanation-card">
+
+        <div class="date">
+          PARTIAL PLATES AND LIVE TRAINING
+        </div>
+
+        <h3>
+          REAL-WORLD DATA, EVEN DURING TRAINING
+        </h3>
+
+        <p>
+          Other "Traffic Infraction" searches used only wildcarded plate
+          fragments (like "????2N"), and at least one was explicitly
+          logged with the reason "Traffic Infraction - Training" &mdash;
+          run against the live, nationwide camera network rather than a
+          separate test environment.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="retention-note">
+
+      <div class="date">
+        NETWORK SHARING
+      </div>
+
+      <h3>
+        LEE'S SUMMIT'S CAMERA DATA IS SHARED WITH 1,729 OUTSIDE ORGANIZATIONS
+      </h3>
+
+      <p>
+        The city's own Flock sharing settings list 1,729 other organizations
+        in a data-sharing relationship with Lee's Summit: 1,555 of them
+        can search cameras Lee's Summit shares, and Lee's Summit in turn
+        can search 824 outside networks. The list spans at least 40 states
+        and includes retail corporations, private railroad police, airport
+        police departments, and state intelligence-sharing centers.
+      </p>
+
+    </div>
+
+
+    <div class="attribute-grid">
+
+      <div class="attribute">HOME DEPOT CORPORATION</div>
+      <div class="attribute">LOWE'S CORPORATION</div>
+      <div class="attribute">DICK'S SPORTING GOODS</div>
+      <div class="attribute">UNION PACIFIC RAILROAD PD</div>
+      <div class="attribute">CSX RAILROAD PD</div>
+      <div class="attribute">MISSOURI INFORMATION ANALYSIS CENTER</div>
+      <div class="attribute">WEST VIRGINIA FUSION CENTER</div>
+      <div class="attribute">NESPIN (NEW ENGLAND STATE POLICE INFO NETWORK)</div>
+      <div class="attribute">TENNESSEE VALLEY AUTHORITY POLICE [FEDERAL]</div>
+
+    </div>
+
+
+    <div class="explanation-grid">
+
+      <div class="explanation-card">
+
+        <div class="date">
+          ALERTS &amp; FLOCKOS ADMIN SETTINGS
+        </div>
+
+        <h3>
+          NATIONAL DATABASES FEED DIRECTLY INTO LOCAL ALERTS
+        </h3>
+
+        <p>
+          The department's admin settings show NCIC alerts enabled for
+          12 of 13 available topics (everything except Immigration
+          Violator), the NCMEC Amber Alert topic enabled, and all 10
+          topics enabled for MULES, the Missouri State Highway Patrol's
+          law enforcement database. It has also opted in to Flock's
+          "Hotlist Deconfliction" feature, which notifies other
+          participating agencies when a plate on their watchlist is
+          seen by Lee's Summit's cameras, and vice versa.
+        </p>
+
+      </div>
+
+
+      <div class="explanation-card">
+
+        <div class="date">
+          CUSTOM WATCHLISTS
+        </div>
+
+        <h3>
+          30 LOCALLY-BUILT HOTLISTS, BEYOND STATE AND FEDERAL ONES
+        </h3>
+
+        <p>
+          On top of the state and federal alert feeds, the department
+          maintains its own custom hotlists with names like "Known
+          Shoplifters," "Retail Theft Suspects," "Car Prowler," "Officer
+          Safety," and unit-specific lists such as "620 SQUAD" and
+          "CRT" (Crime Reduction Team). These are locally curated lists
+          of plates to flag, separate from any court process.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="source-box">
+
+      <h3>
+        READ THE ORIGINAL RECORDS
+      </h3>
+
+      <p>
+        All four documents are provided exactly as produced by the city,
+        redacted only where the city itself redacted them.
+      </p>
+
+      <div class="source-buttons">
+
+        <a
+          class="document-button"
+          href="/documents/flock-audit/2026-07-28_flock-search-audit-log_PUBLIC.csv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DOWNLOAD THE FULL SEARCH AUDIT LOG (CSV)
+        </a>
+
+        <a
+          class="document-button"
+          href="/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DOWNLOAD THE SHARED NETWORKS LIST (CSV)
+        </a>
+
+        <a
+          class="document-button"
+          href="/documents/flock-audit/2026-07-28_custom-hotlists_PUBLIC.csv"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          DOWNLOAD THE CUSTOM HOTLISTS LIST (CSV)
+        </a>
+
+        <a
+          class="document-button"
+          href="/documents/flock-audit/2026-07-28_alerts-and-flockos-admin-settings_PUBLIC.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VIEW THE ALERTS &amp; FLOCKOS ADMIN SETTINGS (PDF)
         </a>
 
       </div>

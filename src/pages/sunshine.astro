@@ -3,6 +3,51 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const requests = [
   {
+    id: "JUL-28-2026",
+    date: "July 28, 2026",
+    requestedBy: "Daniel Hardin, Lee's Summit resident",
+    title: "Flock Search Audit, Hotlists, Alerts and Shared Networks",
+    status: "RECORDS RECEIVED",
+    statusClass: "fulfilled",
+    summary:
+      "Records obtained by a Lee's Summit resident covering one month of the department's own Flock search audit log, its custom watchlists, its alert configuration, and the full list of outside organizations it shares camera data with. Highlights are covered in Record 06 on the From the Records page.",
+    documents: [
+      {
+        type: "SEARCH AUDIT LOG",
+        title: "Read the Full Search Audit Log",
+        href: "/documents/flock-audit/2026-07-28_flock-search-audit-log_PUBLIC.csv"
+      },
+      {
+        type: "SHARED NETWORKS",
+        title: "Read the Shared Networks List",
+        href: "/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv"
+      },
+      {
+        type: "CUSTOM HOTLISTS",
+        title: "Read the Custom Hotlists List",
+        href: "/documents/flock-audit/2026-07-28_custom-hotlists_PUBLIC.csv"
+      },
+      {
+        type: "ALERTS & FLOCKOS ADMIN",
+        title: "View the Alerts & FlockOS Admin Settings",
+        href: "/documents/flock-audit/2026-07-28_alerts-and-flockos-admin-settings_PUBLIC.pdf"
+      }
+    ],
+    timeline: [
+      {
+        date: "JUL 28",
+        title: "RECORDS PRODUCED",
+        text: "The Flock/city exports covering this request are dated July 28, 2026, and cover search activity from June 27 through July 27, 2026."
+      },
+      {
+        date: "AUG 25",
+        title: "SHARED WITH DEFLOCK",
+        text: "Lee's Summit resident Daniel Hardin shared the records with DeFlock Lee's Summit for publication."
+      }
+    ]
+  },
+
+  {
     id: "2026-275",
     date: "August 24, 2026",
     title: "Flock Safety Audit Records",
@@ -10,12 +55,23 @@ const requests = [
     statusClass: "pending",
     summary:
       "A narrowly focused request for audit reports, audit summaries, compliance reviews, findings, violations, discrepancies, and corrective or disciplinary action relating to LSPD's use of Flock.",
-    requestPdf:
-      "/documents/sunshine/2026-08-24_audit_request_submission_PUBLIC.pdf",
-    responsePdf:
-      "/documents/sunshine/2026-08-24_audit_request_city_response_PUBLIC.pdf",
-    officialFormPdf:
-      "/documents/sunshine/2026-08-24_official_records_request_form_PUBLIC.pdf",
+    documents: [
+      {
+        type: "ORIGINAL REQUEST",
+        title: "Read the Sunshine Request",
+        href: "/documents/sunshine/2026-08-24_audit_request_submission_PUBLIC.pdf"
+      },
+      {
+        type: "CITY RESPONSE",
+        title: "Read the City's Response",
+        href: "/documents/sunshine/2026-08-24_audit_request_city_response_PUBLIC.pdf"
+      },
+      {
+        type: "OFFICIAL CITY FORM",
+        title: "View the Official Records Request Form",
+        href: "/documents/sunshine/2026-08-24_official_records_request_form_PUBLIC.pdf"
+      }
+    ],
     timeline: [
       {
         date: "AUG 24",
@@ -38,12 +94,23 @@ const requests = [
     statusClass: "pending",
     summary:
       "Requested the policies and records supporting LSPD's statements about safeguards, Flock searches, retention, audits, hotlist alerts, expanded database access, outside-agency access, and the 2025 Annual Report.",
-    requestPdf:
-      "/documents/sunshine/2026-08-12_flock_policy_request_submission_PUBLIC.pdf",
-    responsePdf:
-      "/documents/sunshine/2026-08-13_flock_policy_city_response_PUBLIC.pdf",
-    officialFormPdf:
-      "/documents/sunshine/2026-08-12_official_records_request_form_PUBLIC.pdf",
+    documents: [
+      {
+        type: "ORIGINAL REQUEST",
+        title: "Read the Sunshine Request",
+        href: "/documents/sunshine/2026-08-12_flock_policy_request_submission_PUBLIC.pdf"
+      },
+      {
+        type: "CITY RESPONSE",
+        title: "Read the City's Response",
+        href: "/documents/sunshine/2026-08-13_flock_policy_city_response_PUBLIC.pdf"
+      },
+      {
+        type: "OFFICIAL CITY FORM",
+        title: "View the Official Records Request Form",
+        href: "/documents/sunshine/2026-08-12_official_records_request_form_PUBLIC.pdf"
+      }
+    ],
     timeline: [
       {
         date: "AUG 12",
@@ -71,10 +138,18 @@ const requests = [
     statusClass: "pending",
     summary:
       "Requested records identifying who owns the cameras, who paid for them, costs, installation, contracts, funding, camera models and locations, administrators, policies and outside-agency access.",
-    requestPdf:
-      "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf",
-    responsePdf:
-      "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf",
+    documents: [
+      {
+        type: "ORIGINAL REQUEST",
+        title: "Read the Sunshine Request",
+        href: "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf"
+      },
+      {
+        type: "CITY RESPONSE",
+        title: "Read the City's Response",
+        href: "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf"
+      }
+    ],
     timeline: [
       {
         date: "AUG 10",
@@ -102,12 +177,23 @@ const requests = [
     statusClass: "closed",
     summary:
       "Requested Flock detections, photographs, plate reads, timestamps, locations, alerts, searches, audit logs and sharing records associated with a specific vehicle.",
-    requestPdf:
-      "/documents/sunshine/2026-08-07_vehicle_request_submission_PUBLIC.pdf",
-    responsePdf:
-      "/documents/sunshine/2026-08-10_vehicle_request_city_response_PUBLIC.pdf",
-    officialFormPdf:
-      "/documents/sunshine/2026-08-07_official_records_request_form_PUBLIC.pdf",
+    documents: [
+      {
+        type: "ORIGINAL REQUEST",
+        title: "Read the Sunshine Request",
+        href: "/documents/sunshine/2026-08-07_vehicle_request_submission_PUBLIC.pdf"
+      },
+      {
+        type: "CITY RESPONSE",
+        title: "Read the City's Response",
+        href: "/documents/sunshine/2026-08-10_vehicle_request_city_response_PUBLIC.pdf"
+      },
+      {
+        type: "OFFICIAL CITY FORM",
+        title: "View the Official Records Request Form",
+        href: "/documents/sunshine/2026-08-07_official_records_request_form_PUBLIC.pdf"
+      }
+    ],
     timeline: [
       {
         date: "AUG 7",
@@ -205,6 +291,11 @@ const requests = [
       border-color: #666;
     }
 
+    .status.fulfilled {
+      color: #3fae5c;
+      border-color: #3fae5c;
+    }
+
     .request-card h2 {
       margin: 18px 0 8px;
       font-size: 30px;
@@ -215,6 +306,13 @@ const requests = [
       color: #777;
       font-size: 12px;
       font-weight: 700;
+    }
+
+    .request-by {
+      color: #999;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 4px;
     }
 
     .request-summary {
@@ -458,6 +556,12 @@ const requests = [
               SUBMITTED {request.date}
             </div>
 
+            {request.requestedBy && (
+              <div class="request-by">
+                REQUESTED BY {request.requestedBy}
+              </div>
+            )}
+
           </div>
 
 
@@ -481,52 +585,24 @@ const requests = [
 
               <div class="document-actions">
 
-                <a
-                  class="document-card request-document"
-                  href={request.requestPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div class="document-icon">PDF</div>
-
-                  <div class="document-info">
-                    <span class="document-type">ORIGINAL REQUEST</span>
-                    <strong>Read the Sunshine Request</strong>
-                    <span class="document-open">OPEN DOCUMENT →</span>
-                  </div>
-                </a>
-
-                <a
-                  class="document-card response-document"
-                  href={request.responsePdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div class="document-icon">PDF</div>
-
-                  <div class="document-info">
-                    <span class="document-type">CITY RESPONSE</span>
-                    <strong>Read the City's Response</strong>
-                    <span class="document-open">OPEN DOCUMENT →</span>
-                  </div>
-                </a>
-
-                {request.officialFormPdf && (
+                {request.documents.map((doc) => (
                   <a
-                    class="document-card official-document"
-                    href={request.officialFormPdf}
+                    class="document-card"
+                    href={doc.href}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div class="document-icon">PDF</div>
+                    <div class="document-icon">
+                      {doc.href.endsWith(".csv") ? "CSV" : "PDF"}
+                    </div>
 
                     <div class="document-info">
-                      <span class="document-type">OFFICIAL CITY FORM</span>
-                      <strong>View the Official Records Request Form</strong>
+                      <span class="document-type">{doc.type}</span>
+                      <strong>{doc.title}</strong>
                       <span class="document-open">OPEN DOCUMENT →</span>
                     </div>
                   </a>
-                )}
+                ))}
 
               </div>
 
