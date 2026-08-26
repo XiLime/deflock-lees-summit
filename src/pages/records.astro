@@ -1,7 +1,6 @@
 ---
-import fs from "node:fs";
-import path from "node:path";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import sharedNetworksCsvRaw from "../../public/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv?raw";
 
 function parseCsvLine(line: string): string[] {
   const cells: string[] = [];
@@ -36,12 +35,7 @@ function parseCsvLine(line: string): string[] {
   return cells;
 }
 
-const sharedNetworksCsvPath = path.resolve(
-  "public/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv"
-);
-
-const sharedOrganizations = fs
-  .readFileSync(sharedNetworksCsvPath, "utf-8")
+const sharedOrganizations = sharedNetworksCsvRaw
   .replace(/^﻿/, "")
   .split(/\r?\n/)
   .filter((line) => line.trim().length > 0)
