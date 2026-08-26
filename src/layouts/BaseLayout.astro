@@ -19,8 +19,8 @@ const ogImageURL = new URL(image, Astro.site);
 const navLinks = [
   { href: "/records", label: "FROM THE RECORDS" },
   { href: "/sunshine", label: "SUNSHINE TRACKER" },
+  { href: "/take-action", label: "TAKE ACTION" },
   { href: "/#mission", label: "ABOUT" },
-  { href: "/#involved", label: "GET INVOLVED" },
   { href: "/contact", label: "CONTACT" },
 ];
 ---
@@ -37,8 +37,10 @@ const navLinks = [
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
 
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DeFlock Lee's Summit" />
@@ -141,6 +143,24 @@ const navLinks = [
       font-size: 13px;
     }
 
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: #d22b2b;
+    }
+
     @media (max-width: 800px) {
       .nav-toggle-label {
         display: block;
@@ -202,8 +222,14 @@ const navLinks = [
 <slot />
 
 <footer>
-  <div class="container">
-    DeFlock Lee's Summit &bull; Lee's Summit, Missouri
+  <div class="container footer-inner">
+    <div>
+      DeFlock Lee's Summit &bull; Lee's Summit, Missouri
+    </div>
+    <div class="footer-links">
+      <a href="/glossary">GLOSSARY</a>
+      <a href="/updates">UPDATES</a>
+    </div>
   </div>
 </footer>
 

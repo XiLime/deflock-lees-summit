@@ -1,5 +1,60 @@
 ---
+import fs from "node:fs";
+import path from "node:path";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+function parseCsvLine(line: string): string[] {
+  const cells: string[] = [];
+  let cur = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+
+    if (inQuotes) {
+      if (ch === '"') {
+        if (line[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        cur += ch;
+      }
+    } else if (ch === '"') {
+      inQuotes = true;
+    } else if (ch === ",") {
+      cells.push(cur);
+      cur = "";
+    } else {
+      cur += ch;
+    }
+  }
+
+  cells.push(cur);
+  return cells;
+}
+
+const sharedNetworksCsvPath = path.resolve(
+  "public/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv"
+);
+
+const sharedOrganizations = fs
+  .readFileSync(sharedNetworksCsvPath, "utf-8")
+  .replace(/^﻿/, "")
+  .split(/\r?\n/)
+  .filter((line) => line.trim().length > 0)
+  .slice(1)
+  .map((line) => {
+    const [name, sharedWithMe, imSharing] = parseCsvLine(line);
+    return {
+      name: name.trim(),
+      sharesWithLS: sharedWithMe.trim().length > 0,
+      lsSharesWith: imSharing.trim().length > 0,
+    };
+  })
+  .sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <BaseLayout
@@ -44,6 +99,84 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   font-size: 11px;
   font-weight: 900;
   letter-spacing: .7px;
+}
+
+.org-search-box {
+  margin-top: 40px;
+}
+
+.org-search-input {
+  width: 100%;
+  padding: 16px 18px;
+  background: #0b0b0b;
+  border: 1px solid #444;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+}
+
+.org-search-count {
+  margin: 12px 0 0;
+  color: #777;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+}
+
+.org-table-wrap {
+  margin-top: 16px;
+  max-height: 480px;
+  overflow-y: auto;
+  border: 1px solid #292929;
+}
+
+.org-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.org-table th {
+  position: sticky;
+  top: 0;
+  background: #141414;
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #999;
+  border-bottom: 1px solid #292929;
+}
+
+.org-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #1c1c1c;
+  color: #ccc;
+}
+
+.org-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.org-flag {
+  color: #555;
+}
+
+.org-flag.active {
+  color: #3fae5c;
+  font-weight: 900;
+}
+
+.org-empty {
+  padding: 24px 14px;
+  color: #777;
+  font-size: 13px;
+  display: none;
+}
+
+.org-empty.visible {
+  display: block;
 }
 
 .quote-grid {
@@ -1824,6 +1957,85 @@ h1 {
       <div class="attribute">TENNESSEE VALLEY AUTHORITY POLICE [FEDERAL]</div>
 
     </div>
+
+
+    <div class="org-search-box">
+
+      <input
+        type="text"
+        id="org-search"
+        class="org-search-input"
+        placeholder="Search all 1,729 organizations by name…"
+        autocomplete="off"
+      />
+
+      <p class="org-search-count" id="org-search-count"></p>
+
+      <div class="org-table-wrap">
+
+        <table class="org-table">
+          <thead>
+            <tr>
+              <th>ORGANIZATION</th>
+              <th>CAN SEARCH LEE'S SUMMIT CAMERAS</th>
+              <th>LEE'S SUMMIT CAN SEARCH THEM</th>
+            </tr>
+          </thead>
+          <tbody id="org-table-body">
+            {sharedOrganizations.map((org) => (
+              <tr data-name={org.name.toLowerCase()}>
+                <td>{org.name}</td>
+                <td>
+                  <span class={`org-flag ${org.lsSharesWith ? "active" : ""}`}>
+                    {org.lsSharesWith ? "YES" : "—"}
+                  </span>
+                </td>
+                <td>
+                  <span class={`org-flag ${org.sharesWithLS ? "active" : ""}`}>
+                    {org.sharesWithLS ? "YES" : "—"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <p class="org-empty" id="org-empty">No organizations match that search.</p>
+
+      </div>
+
+    </div>
+
+
+    <script define:vars={{ totalOrgCount: sharedOrganizations.length }}>
+      const input = document.getElementById("org-search");
+      const rows = Array.from(document.querySelectorAll("#org-table-body tr"));
+      const countLabel = document.getElementById("org-search-count");
+      const emptyState = document.getElementById("org-empty");
+
+      function updateCount(visible) {
+        countLabel.textContent =
+          visible === totalOrgCount
+            ? `Showing all ${totalOrgCount.toLocaleString()} organizations`
+            : `Showing ${visible.toLocaleString()} of ${totalOrgCount.toLocaleString()} organizations`;
+        emptyState.classList.toggle("visible", visible === 0);
+      }
+
+      updateCount(rows.length);
+
+      input?.addEventListener("input", () => {
+        const query = input.value.trim().toLowerCase();
+        let visible = 0;
+
+        for (const row of rows) {
+          const match = row.dataset.name.includes(query);
+          row.style.display = match ? "" : "none";
+          if (match) visible++;
+        }
+
+        updateCount(visible);
+      });
+    </script>
 
 
     <div class="explanation-grid">

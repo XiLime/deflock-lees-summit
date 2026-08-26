@@ -1,0 +1,186 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const terms = [
+  {
+    term: "ALPR",
+    full: "Automated License Plate Reader",
+    definition:
+      "A camera system that automatically photographs every passing license plate, reads the plate number with software, and logs the time, date, and GPS location of the vehicle. It runs on every car that passes, not just ones suspected of anything."
+  },
+  {
+    term: "Flock Safety",
+    full: "",
+    definition:
+      "The company that manufactures and operates the ALPR cameras used by the Lee's Summit Police Department. Flock hosts the camera footage and search data on its own cloud platform, called FlockOS, rather than on city-owned servers."
+  },
+  {
+    term: "Vehicle Fingerprint",
+    full: "",
+    definition:
+      "Flock's term for the set of visual details its cameras capture about a vehicle beyond the plate itself: make, color, vehicle type, missing or covered plates, roof racks, bumper stickers, and other distinguishing features. This lets someone search for a vehicle even without knowing its plate number."
+  },
+  {
+    term: "Hotlist",
+    full: "",
+    definition:
+      "A list of license plates that automatically triggers an alert whenever one of the plates on it is seen by a camera. Hotlists can be built from official sources like stolen-vehicle databases, or manually typed in by an individual officer as a 'custom hotlist.'"
+  },
+  {
+    term: "Hotlist Deconfliction",
+    full: "",
+    definition:
+      "The process of checking whether a plate flagged on one agency's hotlist is already known to, or being investigated by, another agency, to avoid duplicated or conflicting law enforcement action."
+  },
+  {
+    term: "Freeform Search",
+    full: "",
+    definition:
+      "A search of the camera database using descriptive terms typed by an officer, rather than an exact plate number, e.g. searching for a 'red pickup' or a vehicle with a specific bumper sticker. Freeform searches let officers look for vehicles based on vague or partial descriptions."
+  },
+  {
+    term: "NCIC",
+    full: "National Crime Information Center",
+    definition:
+      "A national database maintained by the FBI containing records on stolen vehicles, wanted persons, and other criminal justice information. It's one possible source used to build automatic hotlists."
+  },
+  {
+    term: "NCMEC",
+    full: "National Center for Missing & Exploited Children",
+    definition:
+      "A nonprofit organization that maintains data on missing children cases, sometimes used as a source for hotlist alerts on ALPR systems."
+  },
+  {
+    term: "MULES",
+    full: "Missouri Uniform Law Enforcement System",
+    definition:
+      "Missouri's statewide law enforcement information-sharing network, run by the Missouri State Highway Patrol, used to exchange criminal justice and driver/vehicle data between agencies across the state."
+  },
+  {
+    term: "Fusion Center",
+    full: "",
+    definition:
+      "A regional hub where local, state, and federal law enforcement and intelligence agencies share information with each other, including data pulled from systems like ALPR networks."
+  },
+  {
+    term: "Sunshine Law",
+    full: "Missouri's open records law",
+    definition:
+      "Missouri's public records law (Chapter 610, RSMo), which gives any resident the right to request and receive most government records, including police records like ALPR search logs and vendor contracts. This is the law we use to obtain the documents published on this site."
+  },
+  {
+    term: "Network Sharing",
+    full: "",
+    definition:
+      "A feature that lets one agency's Flock cameras be searched by other agencies outside that jurisdiction, and vice versa. When Lee's Summit shares its camera network, outside police departments, and in some cases private organizations, can search footage captured on Lee's Summit streets."
+  }
+];
+---
+
+<BaseLayout
+  title="Glossary | DeFlock Lee's Summit"
+  description="Plain-language definitions of the ALPR, Flock Safety, and surveillance terminology used throughout the DeFlock Lee's Summit records archive."
+  containerWidth="900px"
+>
+  <style>
+    .hero {
+      padding: 75px 0 55px;
+      border-bottom: 1px solid #292929;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: .95;
+      letter-spacing: -4px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .terms {
+      padding: 60px 0 90px;
+    }
+
+    .term-entry {
+      padding: 30px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .term-entry:first-child {
+      padding-top: 0;
+    }
+
+    .term-name {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .term-full {
+      color: #d22b2b;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 4px;
+      margin-bottom: 12px;
+    }
+
+    .term-definition {
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 15.5px;
+      max-width: 720px;
+    }
+  </style>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          REFERENCE
+        </div>
+
+        <h1>
+          GLOSSARY
+        </h1>
+
+        <p class="intro">
+          The records on this site use a lot of law-enforcement and
+          surveillance-industry shorthand. Here's what the terms
+          actually mean.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="terms">
+      <div class="container">
+
+        {terms.map((item) => (
+          <div class="term-entry">
+            <div class="term-name">{item.term}</div>
+            {item.full && <div class="term-full">{item.full}</div>}
+            <p class="term-definition">{item.definition}</p>
+          </div>
+        ))}
+
+      </div>
+    </section>
+
+  </main>
+
+</BaseLayout>

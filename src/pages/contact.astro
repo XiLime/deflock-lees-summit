@@ -129,6 +129,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       font-weight: 800;
     }
 
+    .privacy-note {
+      margin-top: 16px;
+      color: #777;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
     @media (max-width: 700px) {
       .contact-layout {
         grid-template-columns: 1fr;
@@ -259,6 +266,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             </button>
 
             <div class="form-status" id="form-status" role="status"></div>
+
+            <p class="privacy-note">
+              This form is delivered through a third-party form processor
+              (Web3Forms) and goes only to DeFlock Lee's Summit organizers.
+              We don't sell or share your information, and we won't use it
+              for anything other than responding to you.
+            </p>
 
           </form>
 

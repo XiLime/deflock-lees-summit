@@ -1,0 +1,438 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const officials = [
+  {
+    role: "MAYOR",
+    name: "Beto Lopez",
+    district: "City Hall",
+    phone: "816.969.1010",
+    email: "beto.lopez@cityofls.net"
+  },
+  {
+    role: "DISTRICT 1",
+    name: "Mia Prier",
+    district: "District 1",
+    phone: "816.914.3392",
+    email: "mia.prier@cityofls.net"
+  },
+  {
+    role: "DISTRICT 1 — MAYOR PRO TEM",
+    name: "Hillary Shields",
+    district: "District 1",
+    phone: "816.875.0142",
+    email: "hillary.shields@cityofls.net"
+  },
+  {
+    role: "DISTRICT 2",
+    name: "Trish Carlyle",
+    district: "District 2",
+    phone: "816.969.7372",
+    email: "trish.carlyle@cityofls.net"
+  },
+  {
+    role: "DISTRICT 2",
+    name: "Shari Frazier",
+    district: "District 2",
+    phone: "816.516.5661",
+    email: "shari.frazier@cityofls.net"
+  },
+  {
+    role: "DISTRICT 3",
+    name: "Melanie Adkins",
+    district: "District 3",
+    phone: "816.679.2641",
+    email: "melanie.adkins@cityofls.net"
+  },
+  {
+    role: "DISTRICT 4",
+    name: "Nyauna Cravens",
+    district: "District 4",
+    phone: "816.308.2061",
+    email: "nyauna.cravens@cityofls.net"
+  },
+  {
+    role: "DISTRICT 4",
+    name: "Donnie Funk",
+    district: "District 4",
+    phone: "816.935.0977",
+    email: "donnie.funk@cityofls.net"
+  }
+];
+
+const emailBody = `Dear Mayor Lopez and City Council,
+
+I am a Lee's Summit resident writing to ask you to end the city's automated license plate reader (ALPR) program with Flock Safety and remove the cameras from public right-of-way.
+
+Public records show the city is paying $175,000 a year under a five-year, $909,150 contract, and the department's own search audit log shows queries reaching camera networks run by more than a thousand outside organizations, including retail corporations and out-of-state agencies.
+
+I don't believe our streets should be a searchable database of where everyone in our community drives. Please end this program.
+
+Sincerely,
+[Your name]
+[Your street or neighborhood, optional]`;
+
+const ccList = officials
+  .filter((o) => o.email !== "beto.lopez@cityofls.net")
+  .map((o) => o.email)
+  .join(",");
+
+const mailtoHref =
+  `mailto:beto.lopez@cityofls.net?cc=${encodeURIComponent(ccList)}` +
+  `&subject=${encodeURIComponent("Please end the Flock Safety ALPR program")}` +
+  `&body=${encodeURIComponent(emailBody)}`;
+---
+
+<BaseLayout
+  title="Take Action | DeFlock Lee's Summit"
+  description="Contact the Lee's Summit Mayor and City Council, and find out how to speak at a City Council meeting about the Flock Safety ALPR program."
+  containerWidth="1050px"
+>
+  <style>
+    .hero {
+      padding: 75px 0 65px;
+      border-bottom: 1px solid #292929;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: .95;
+      letter-spacing: -4px;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .action-section {
+      padding: 70px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .section-label {
+      color: #d22b2b;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .action-section h2 {
+      margin: 12px 0 16px;
+      font-size: clamp(32px, 5vw, 48px);
+      letter-spacing: -2px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .email-callout {
+      padding: 34px;
+      background: #141414;
+      border-left: 5px solid #d22b2b;
+    }
+
+    .email-callout p {
+      max-width: 700px;
+      color: #999;
+      line-height: 1.65;
+      margin: 0 0 22px;
+    }
+
+    .email-button {
+      display: inline-block;
+      padding: 17px 26px;
+      background: #d22b2b;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .8px;
+    }
+
+    .email-button:hover {
+      background: #b82323;
+    }
+
+    .council-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .council-card {
+      background: #141414;
+      border: 1px solid #292929;
+      padding: 24px;
+    }
+
+    .council-role {
+      color: #d22b2b;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+    }
+
+    .council-card h3 {
+      margin: 10px 0 4px;
+      font-size: 21px;
+    }
+
+    .council-district {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .council-card a {
+      display: block;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .council-card a:hover {
+      color: #d22b2b;
+    }
+
+    .meeting-facts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid #292929;
+      margin-bottom: 30px;
+    }
+
+    .meeting-fact {
+      padding: 26px;
+      background: #141414;
+      border-right: 1px solid #292929;
+    }
+
+    .meeting-fact:last-child {
+      border-right: 0;
+    }
+
+    .meeting-fact strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .meeting-fact span {
+      color: #777;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .rules-list {
+      color: #aaa;
+      line-height: 1.8;
+      max-width: 720px;
+      padding-left: 20px;
+      margin: 0 0 30px;
+    }
+
+    .source-note {
+      padding: 22px 26px;
+      background: #141414;
+      border: 1px solid #292929;
+      color: #888;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .source-note a {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    .source-note a:hover {
+      color: #d22b2b;
+    }
+
+    @media (max-width: 800px) {
+      .council-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .meeting-facts {
+        grid-template-columns: 1fr;
+      }
+
+      .meeting-fact {
+        border-right: 0;
+        border-bottom: 1px solid #292929;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .council-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          GET LOUD
+        </div>
+
+        <h1>
+          TAKE ACTION
+        </h1>
+
+        <p class="intro">
+          Reading the records is step one. Here's how to put what you've
+          learned in front of the people who can actually end this program:
+          the Lee's Summit Mayor and City Council.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="action-section">
+      <div class="container">
+
+        <div class="section-label">
+          STEP ONE
+        </div>
+
+        <h2>
+          SEND ONE EMAIL TO EVERYONE
+        </h2>
+
+        <div class="email-callout">
+
+          <p>
+            This opens your email app with a message pre-filled to the
+            Mayor and all six City Council members at once. Personalize
+            it before sending &mdash; a message in your own words carries
+            more weight than a form letter.
+          </p>
+
+          <a class="email-button" href={mailtoHref}>
+            EMAIL THE MAYOR &amp; COUNCIL →
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="action-section">
+      <div class="container">
+
+        <div class="section-label">
+          DIRECT CONTACTS
+        </div>
+
+        <h2>
+          THE MAYOR AND CITY COUNCIL
+        </h2>
+
+        <p class="section-intro">
+          Prefer to call or write your own message? Here's every current
+          member of Lee's Summit's governing body, pulled directly from
+          the City's own council directory.
+        </p>
+
+        <div class="council-grid">
+
+          {officials.map((official) => (
+            <div class="council-card">
+              <div class="council-role">{official.role}</div>
+              <h3>{official.name}</h3>
+              <div class="council-district">{official.district}</div>
+              <a href={`mailto:${official.email}`}>{official.email}</a>
+              <a href={`tel:${official.phone.replace(/\./g, "")}`}>{official.phone}</a>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="action-section">
+      <div class="container">
+
+        <div class="section-label">
+          STEP TWO
+        </div>
+
+        <h2>
+          SPEAK AT A CITY COUNCIL MEETING
+        </h2>
+
+        <p class="section-intro">
+          Showing up in person and speaking during public comment is one
+          of the most direct ways to be heard. Here's what the City's own
+          rules say.
+        </p>
+
+        <div class="meeting-facts">
+
+          <div class="meeting-fact">
+            <strong>1st, 2nd &amp; 3rd Tuesdays</strong>
+            <span>REGULAR SESSIONS, 6:00 PM</span>
+          </div>
+
+          <div class="meeting-fact">
+            <strong>3 minutes</strong>
+            <span>TIME ALLOWED PER SPEAKER</span>
+          </div>
+
+          <div class="meeting-fact">
+            <strong>220 SE Green St</strong>
+            <span>CITY HALL, COUNCIL CHAMBERS</span>
+          </div>
+
+        </div>
+
+        <ul class="rules-list">
+          <li>Public comment can address anything on that meeting's agenda, or anything related to the operations of the City of Lee's Summit.</li>
+          <li>If you want to hand out printed materials to the Mayor and Council, give them to the City Clerk, who distributes them.</li>
+          <li>The City's page on this doesn't publish an exact sign-up cutoff time or method &mdash; call City Hall ahead of the meeting to confirm how to get on the speakers' list.</li>
+        </ul>
+
+        <div class="source-note">
+          Meeting schedule and comment rules confirmed directly from the
+          City's own pages: the
+          {" "}<a href="https://cityofls.net/city-council/public-comments-and-meeting-structure" target="_blank" rel="noopener noreferrer">public comment procedure</a>,
+          the{" "}<a href="https://lsmo.legistar.com/Calendar.aspx" target="_blank" rel="noopener noreferrer">official meeting calendar and agendas</a>,
+          and the{" "}<a href="https://cityofls.net/city-council" target="_blank" rel="noopener noreferrer">City Council directory</a>.
+          Always check the calendar for the exact date and agenda before you go &mdash; meeting nights can shift around holidays.
+          You can also call City Hall directly at{" "}<a href="tel:8169691000">816.969.1000</a>.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</BaseLayout>
