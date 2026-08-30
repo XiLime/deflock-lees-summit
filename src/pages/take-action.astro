@@ -77,10 +77,26 @@ const ccList = officials
   .map((o) => o.email)
   .join(",");
 
+const emailSubject = "Please end the Flock Safety ALPR program";
+
 const mailtoHref =
   `mailto:beto.lopez@cityofls.net?cc=${encodeURIComponent(ccList)}` +
-  `&subject=${encodeURIComponent("Please end the Flock Safety ALPR program")}` +
+  `&subject=${encodeURIComponent(emailSubject)}` +
   `&body=${encodeURIComponent(emailBody)}`;
+
+const gmailHref =
+  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent("beto.lopez@cityofls.net")}` +
+  `&cc=${encodeURIComponent(ccList)}` +
+  `&su=${encodeURIComponent(emailSubject)}` +
+  `&body=${encodeURIComponent(emailBody)}`;
+
+const outlookHref =
+  `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent("beto.lopez@cityofls.net")}` +
+  `&cc=${encodeURIComponent(ccList)}` +
+  `&subject=${encodeURIComponent(emailSubject)}` +
+  `&body=${encodeURIComponent(emailBody)}`;
+
+const allOfficialsEmails = officials.map((o) => o.email).join(", ");
 ---
 
 <BaseLayout
@@ -166,6 +182,59 @@ const mailtoHref =
 
     .email-button:hover {
       background: #b82323;
+    }
+
+    .email-fallback {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid #292929;
+    }
+
+    .email-fallback-label {
+      color: #777;
+      font-size: 12px;
+      margin: 0 0 12px;
+    }
+
+    .fallback-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .fallback-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      background: transparent;
+      border: 1px solid #444;
+      color: #ccc;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      cursor: pointer;
+    }
+
+    .fallback-button:hover {
+      border-color: #d22b2b;
+      color: #fff;
+    }
+
+    .fallback-button.copied {
+      border-color: #3fae5c;
+      color: #8fe0a8;
+    }
+
+    @media (max-width: 550px) {
+      .fallback-actions {
+        flex-direction: column;
+      }
+
+      .fallback-button {
+        justify-content: center;
+      }
     }
 
     .council-grid {
@@ -337,6 +406,45 @@ const mailtoHref =
             EMAIL THE MAYOR &amp; COUNCIL →
           </a>
 
+          <div class="email-fallback">
+
+            <p class="email-fallback-label">
+              Button not opening a mail app? Use webmail instead, or copy
+              the message and paste it in yourself:
+            </p>
+
+            <div class="fallback-actions">
+
+              <a class="fallback-button" href={gmailHref} target="_blank" rel="noopener noreferrer">
+                OPEN IN GMAIL
+              </a>
+
+              <a class="fallback-button" href={outlookHref} target="_blank" rel="noopener noreferrer">
+                OPEN IN OUTLOOK.COM
+              </a>
+
+              <button
+                type="button"
+                class="fallback-button"
+                id="copy-message-btn"
+                data-copy-text={emailBody}
+              >
+                COPY MESSAGE
+              </button>
+
+              <button
+                type="button"
+                class="fallback-button"
+                id="copy-addresses-btn"
+                data-copy-text={allOfficialsEmails}
+              >
+                COPY ALL ADDRESSES
+              </button>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -434,5 +542,29 @@ const mailtoHref =
     </section>
 
   </main>
+
+  <script>
+    const copyButtons = document.querySelectorAll<HTMLButtonElement>("[data-copy-text]");
+
+    copyButtons.forEach((button) => {
+      const originalLabel = button.textContent;
+      const text = button.dataset.copyText ?? "";
+
+      button.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = "COPIED ✓";
+          button.classList.add("copied");
+        } catch {
+          button.textContent = "COULDN'T COPY — SELECT MANUALLY";
+        }
+
+        setTimeout(() => {
+          button.textContent = originalLabel;
+          button.classList.remove("copied");
+        }, 2000);
+      });
+    });
+  </script>
 
 </BaseLayout>
