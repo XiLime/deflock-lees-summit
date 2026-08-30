@@ -8,6 +8,11 @@ export function slugifyUpdateTitle(title: string): string {
 export const updates = [
   {
     date: "2026-08-29",
+    title: "Made the \"file your own request\" guide easier to find",
+    body: "It was only linked from a small footer line. Added a real callout button on the Sunshine Tracker, a dedicated step on the Take Action page, and a mention in the FAQ."
+  },
+  {
+    date: "2026-08-29",
     title: "RSS feed, overdue-request tracking, structured data, and a filing guide",
     body: "Added an RSS feed so you can follow site updates without email, live stats and automatic overdue-flagging on the Sunshine Tracker (based on the City's own stated estimates), search-engine structured data, a step-by-step guide to filing your own Sunshine request, and share buttons on the FAQ and Record 06."
   },

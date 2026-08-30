@@ -410,16 +410,47 @@ const stats = {
       }
     }
 
-    .file-request-note {
-      margin-top: 20px;
-      color: #999;
-      font-size: 14px;
+    .file-request-callout {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 30px;
+      padding: 26px 30px;
+      background: #141414;
+      border-left: 5px solid #d22b2b;
     }
 
-    .file-request-note a {
+    .file-request-callout p {
+      margin: 0;
+      max-width: 480px;
+      color: #999;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .file-request-button {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 15px 22px;
+      background: #d22b2b;
       color: #fff;
-      font-weight: 800;
-      text-decoration: underline;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      white-space: nowrap;
+    }
+
+    .file-request-button:hover {
+      background: #b82323;
+    }
+
+    @media (max-width: 550px) {
+      .file-request-callout {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     .request-list {
@@ -749,10 +780,16 @@ const stats = {
         )}
       </div>
 
-      <p class="file-request-note">
-        Want records on something else the City does?{" "}
-        <a href="/file-a-request">Here's how to file your own Sunshine request →</a>
-      </p>
+      <div class="file-request-callout">
+        <p>
+          Want records on something else the City does? You don't need
+          a lawyer or any special access &mdash; here's exactly how to
+          file your own Sunshine Law request.
+        </p>
+        <a class="file-request-button" href="/file-a-request">
+          FILE YOUR OWN REQUEST →
+        </a>
+      </div>
 
     </div>
   </section>
