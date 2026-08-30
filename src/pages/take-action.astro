@@ -287,6 +287,42 @@ const allOfficialsEmails = officials.map((o) => o.email).join(", ");
       margin-bottom: 30px;
     }
 
+    .handout-callout {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 26px 30px;
+      margin-bottom: 30px;
+      background: #141414;
+      border-left: 5px solid #d22b2b;
+    }
+
+    .handout-callout p {
+      margin: 0;
+      max-width: 480px;
+      color: #999;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .handout-button {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 15px 22px;
+      background: #d22b2b;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      white-space: nowrap;
+    }
+
+    .handout-button:hover {
+      background: #b82323;
+    }
+
     .meeting-fact {
       padding: 26px;
       background: #141414;
@@ -523,9 +559,20 @@ const allOfficialsEmails = officials.map((o) => o.email).join(", ");
 
         </div>
 
+        <div class="handout-callout">
+          <p>
+            Want to leave something behind? There's a one-page printable
+            summary of the key facts and contact info, ready to hand to
+            the City Clerk for distribution.
+          </p>
+          <a class="handout-button" href="/handout">
+            GET THE PRINTABLE HANDOUT →
+          </a>
+        </div>
+
         <ul class="rules-list">
           <li>Public comment can address anything on that meeting's agenda, or anything related to the operations of the City of Lee's Summit.</li>
-          <li>If you want to hand out printed materials to the Mayor and Council, give them to the City Clerk, who distributes them &mdash; there's a <a href="/handout" style="text-decoration: underline; font-weight: 800; color: #fff;">printable one-page handout</a> ready to bring.</li>
+          <li>If you want to hand out printed materials to the Mayor and Council, give them to the City Clerk, who distributes them.</li>
           <li>The City's page on this doesn't publish an exact sign-up cutoff time or method &mdash; call City Hall ahead of the meeting to confirm how to get on the speakers' list.</li>
         </ul>
 
