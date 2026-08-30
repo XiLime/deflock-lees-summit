@@ -1,0 +1,265 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const facts = [
+  { stat: "$909,150", label: "TOTAL COST OF LEE'S SUMMIT'S 5-YEAR FLOCK CONTRACT" },
+  { stat: "2,699", label: "CAMERA SEARCHES LOGGED BY 89 DIFFERENT OFFICERS" },
+  { stat: "6,266", label: "OUTSIDE CAMERA NETWORKS REACHED BY THE LARGEST SINGLE SEARCH" },
+  { stat: "1,729", label: "OUTSIDE ORGANIZATIONS WITH DATA-SHARING ACCESS TO LEE'S SUMMIT'S CAMERAS" },
+];
+
+const assets = [
+  { href: "/logo.png", label: "LOGO (TRANSPARENT PNG)" },
+  { href: "/logo-white-bg.png", label: "LOGO (WHITE BACKGROUND)" },
+];
+---
+
+<BaseLayout
+  title="Press | DeFlock Lee's Summit"
+  description="Media resources for DeFlock Lee's Summit: boilerplate, verified key facts, logo downloads, and contact information."
+  containerWidth="900px"
+>
+  <style>
+    .hero {
+      padding: 75px 0 55px;
+      border-bottom: 1px solid #292929;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: .95;
+      letter-spacing: -4px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .press-section {
+      padding: 60px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .section-label {
+      color: #d22b2b;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .press-section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(26px, 4vw, 36px);
+      letter-spacing: -1px;
+    }
+
+    .boilerplate p {
+      max-width: 700px;
+      color: #ccc;
+      line-height: 1.75;
+      font-size: 15.5px;
+    }
+
+    .fact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .fact-box {
+      background: #141414;
+      border: 1px solid #292929;
+      padding: 22px;
+    }
+
+    .fact-box strong {
+      display: block;
+      font-size: 30px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .fact-box span {
+      color: #999;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      line-height: 1.5;
+    }
+
+    .asset-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .asset-card {
+      width: 160px;
+      text-align: center;
+    }
+
+    .asset-preview {
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #292929;
+      margin-bottom: 10px;
+    }
+
+    .asset-preview.dark {
+      background: #0b0b0b;
+    }
+
+    .asset-preview.light {
+      background: #fff;
+    }
+
+    .asset-preview img {
+      max-width: 75%;
+      max-height: 75%;
+    }
+
+    .asset-card a {
+      display: block;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-decoration: underline;
+    }
+
+    .press-contact p {
+      color: #ccc;
+      line-height: 1.7;
+      max-width: 650px;
+    }
+
+    .press-contact .email {
+      color: #fff;
+      font-weight: 800;
+    }
+
+    @media (max-width: 700px) {
+      .fact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          MEDIA RESOURCES
+        </div>
+
+        <h1>
+          PRESS
+        </h1>
+
+        <p class="intro">
+          Resources for journalists and researchers covering Lee's
+          Summit's Flock Safety ALPR program.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="press-section boilerplate">
+      <div class="container">
+
+        <div class="section-label">BOILERPLATE</div>
+        <h2>ABOUT DEFLOCK LEE'S SUMMIT</h2>
+
+        <p>
+          DeFlock Lee's Summit is a citizen-led effort demanding an end to
+          automated license plate reader surveillance in Lee's Summit,
+          Missouri. Using Missouri's Sunshine Law, organizers have
+          obtained the City's Flock Safety contract, internal camera
+          search audit logs, hotlist configurations, and data-sharing
+          settings, and published the original documents alongside plain-
+          language analysis at deflockls.com. The project is part of a
+          broader nationwide movement tracking ALPR deployment — see
+          DeFlock.org.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="press-section">
+      <div class="container">
+
+        <div class="section-label">VERIFIED KEY FACTS</div>
+        <h2>THE NUMBERS, SOURCED</h2>
+
+        <div class="fact-grid">
+          {facts.map((fact) => (
+            <div class="fact-box">
+              <strong>{fact.stat}</strong>
+              <span>{fact.label}</span>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="press-section">
+      <div class="container">
+
+        <div class="section-label">LOGO DOWNLOADS</div>
+        <h2>BRAND ASSETS</h2>
+
+        <div class="asset-list">
+          {assets.map((asset) => (
+            <div class="asset-card">
+              <div class={`asset-preview ${asset.href.includes("white-bg") ? "light" : "dark"}`}>
+                <img src={asset.href} alt="DeFlock Lee's Summit logo" />
+              </div>
+              <a href={asset.href} download>{asset.label}</a>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="press-section press-contact">
+      <div class="container">
+
+        <div class="section-label">CONTACT</div>
+        <h2>FOR INTERVIEWS OR QUESTIONS</h2>
+
+        <p>
+          Reach out at <a class="email" href="mailto:contact@deflockls.com">contact@deflockls.com</a>.
+          Full source documents are linked on the{" "}
+          <a href="/records">Records</a> and <a href="/sunshine">Sunshine Tracker</a> pages.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+</BaseLayout>

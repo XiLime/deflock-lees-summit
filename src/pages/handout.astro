@@ -1,0 +1,287 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const officials = [
+  { name: "Mayor Beto Lopez", phone: "816.969.1010", email: "beto.lopez@cityofls.net" },
+  { name: "Mia Prier (District 1)", phone: "816.914.3392", email: "mia.prier@cityofls.net" },
+  { name: "Hillary Shields (District 1)", phone: "816.875.0142", email: "hillary.shields@cityofls.net" },
+  { name: "Trish Carlyle (District 2)", phone: "816.969.7372", email: "trish.carlyle@cityofls.net" },
+  { name: "Shari Frazier (District 2)", phone: "816.516.5661", email: "shari.frazier@cityofls.net" },
+  { name: "Melanie Adkins (District 3)", phone: "816.679.2641", email: "melanie.adkins@cityofls.net" },
+  { name: "Nyauna Cravens (District 4)", phone: "816.308.2061", email: "nyauna.cravens@cityofls.net" },
+  { name: "Donnie Funk (District 4)", phone: "816.935.0977", email: "donnie.funk@cityofls.net" },
+];
+---
+
+<BaseLayout
+  title="Printable Handout | DeFlock Lee's Summit"
+  description="A one-page printable summary of Lee's Summit's Flock Safety ALPR program, for handing out at City Council meetings."
+  containerWidth="850px"
+>
+  <style>
+    .toolbar {
+      padding: 30px 0 0;
+    }
+
+    .print-button {
+      display: inline-block;
+      padding: 14px 22px;
+      background: #d22b2b;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .8px;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .print-button:hover {
+      background: #b82323;
+    }
+
+    .print-note {
+      margin: 14px 0 0;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .sheet {
+      margin: 40px 0 90px;
+      padding: 46px;
+      background: #fff;
+      color: #111;
+    }
+
+    .sheet-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 3px solid #111;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+
+    .sheet-brand {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -.5px;
+    }
+
+    .sheet-brand span {
+      color: #d22b2b;
+    }
+
+    .sheet-url {
+      font-size: 12px;
+      font-weight: 700;
+      color: #555;
+    }
+
+    .sheet h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+      letter-spacing: -.5px;
+    }
+
+    .sheet-sub {
+      margin: 0 0 26px;
+      color: #444;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .stat-box {
+      border: 1.5px solid #111;
+      padding: 14px;
+    }
+
+    .stat-box strong {
+      display: block;
+      font-size: 24px;
+      letter-spacing: -.5px;
+    }
+
+    .stat-box span {
+      display: block;
+      margin-top: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #444;
+      letter-spacing: .3px;
+    }
+
+    .sheet h2 {
+      font-size: 13px;
+      letter-spacing: 1.2px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 6px;
+      margin: 26px 0 10px;
+    }
+
+    .sheet p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #222;
+      margin: 0 0 10px;
+    }
+
+    .contact-columns {
+      column-count: 2;
+      column-gap: 24px;
+      margin-top: 10px;
+    }
+
+    .contact-line {
+      break-inside: avoid;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .contact-line strong {
+      display: block;
+      font-size: 12.5px;
+    }
+
+    .contact-line span {
+      color: #444;
+    }
+
+    .sheet-footer {
+      margin-top: 26px;
+      padding-top: 14px;
+      border-top: 1px solid #ccc;
+      font-size: 11px;
+      color: #555;
+    }
+
+    @media print {
+      .toolbar {
+        display: none !important;
+      }
+
+      .sheet {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 100% !important;
+      }
+    }
+  </style>
+
+  <style is:global>
+    @media print {
+      header, footer {
+        display: none !important;
+      }
+
+      body {
+        background: #fff;
+      }
+    }
+  </style>
+
+  <main id="main-content">
+
+    <div class="container toolbar">
+      <button class="print-button" id="print-btn" type="button">PRINT THIS PAGE</button>
+      <p class="print-note">
+        Formatted to fit on one printed sheet. Bring copies to a City Council
+        meeting and give them to the City Clerk to distribute, per the
+        City's public comment rules.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="sheet">
+
+        <div class="sheet-header">
+          <div class="sheet-brand">DEFLOCK <span>LEE'S SUMMIT</span></div>
+          <div class="sheet-url">deflockls.com</div>
+        </div>
+
+        <h1>Lee's Summit's Flock Safety Camera Program, By the Numbers</h1>
+        <p class="sheet-sub">
+          Everything below comes from public records obtained directly from
+          the City of Lee's Summit under Missouri's Sunshine Law. Full
+          source documents at deflockls.com/records.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat-box">
+            <strong>$909,150</strong>
+            <span>TOTAL COST OF THE 5-YEAR CONTRACT</span>
+          </div>
+          <div class="stat-box">
+            <strong>2,699</strong>
+            <span>CAMERA SEARCHES LOGGED BY 89 OFFICERS</span>
+          </div>
+          <div class="stat-box">
+            <strong>1,729</strong>
+            <span>OUTSIDE ORGANIZATIONS WITH DATA-SHARING ACCESS</span>
+          </div>
+        </div>
+
+        <h2>THE CONTRACT</h2>
+        <p>
+          The City pays $175,000 per year in recurring costs to Flock
+          Safety, part of a five-year contract totaling $909,150.
+        </p>
+
+        <h2>THE SEARCHES</h2>
+        <p>
+          The department's own audit log shows 2,699 camera searches run by
+          89 different officers. The median search reached 1,017 separate
+          camera networks; the single largest search reached 6,266 networks
+          &mdash; far beyond Lee's Summit's own cameras.
+        </p>
+
+        <h2>THE SHARING</h2>
+        <p>
+          Lee's Summit's camera network has a data-sharing relationship
+          with 1,729 outside organizations across at least 40 states.
+          1,555 of them can search cameras Lee's Summit shares, and Lee's
+          Summit in turn can search 824 outside networks &mdash; including
+          retail corporations, private railroad police, and out-of-state
+          fusion centers.
+        </p>
+
+        <h2>CONTACT THE MAYOR &amp; CITY COUNCIL</h2>
+
+        <div class="contact-columns">
+          {officials.map((official) => (
+            <div class="contact-line">
+              <strong>{official.name}</strong>
+              <span>{official.phone} &bull; {official.email}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="sheet-footer">
+          City Council meets the 1st, 2nd &amp; 3rd Tuesdays of the month,
+          6:00 PM, City Hall Council Chambers (220 SE Green St). Public
+          comment is limited to 3 minutes per speaker. Full records,
+          sources, and more ways to help at deflockls.com.
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    document.getElementById("print-btn")?.addEventListener("click", () => {
+      window.print();
+    });
+  </script>
+
+</BaseLayout>

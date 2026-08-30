@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const links = [
+  { href: "/records", label: "READ THE RECORDS" },
+  { href: "/sunshine", label: "SUNSHINE TRACKER" },
+  { href: "/take-action", label: "TAKE ACTION" },
+  { href: "/", label: "HOMEPAGE" },
+];
+---
+
+<BaseLayout
+  title="Page Not Found | DeFlock Lee's Summit"
+  description="This page doesn't exist. Find records, the sunshine tracker, and ways to take action from here."
+  containerWidth="900px"
+>
+  <style>
+    main {
+      padding: 110px 0 130px;
+      text-align: center;
+    }
+
+    .code {
+      color: #d22b2b;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    h1 {
+      margin: 14px 0 20px;
+      font-size: clamp(48px, 9vw, 88px);
+      line-height: .95;
+      letter-spacing: -4px;
+    }
+
+    p {
+      max-width: 560px;
+      margin: 0 auto 40px;
+      color: #aaa;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .links a {
+      padding: 14px 22px;
+      border: 1px solid #444;
+      color: #ccc;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .8px;
+    }
+
+    .links a:hover {
+      border-color: #d22b2b;
+      color: #fff;
+    }
+
+    .links a.primary {
+      background: #d22b2b;
+      border-color: #d22b2b;
+      color: #fff;
+    }
+
+    .links a.primary:hover {
+      background: #b82323;
+    }
+  </style>
+
+  <main id="main-content">
+    <div class="container">
+
+      <div class="code">
+        404 &mdash; NOT FOUND
+      </div>
+
+      <h1>
+        NOTHING HERE.
+      </h1>
+
+      <p>
+        The page you're looking for doesn't exist, or the link's out of
+        date. Here's where you probably meant to go:
+      </p>
+
+      <div class="links">
+        {links.map((link, i) => (
+          <a href={link.href} class={i === 0 ? "primary" : ""}>{link.label}</a>
+        ))}
+      </div>
+
+    </div>
+  </main>
+
+</BaseLayout>

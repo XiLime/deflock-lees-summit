@@ -77,6 +77,33 @@ const navLinks = [
       text-decoration: none;
     }
 
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 2px solid #d22b2b;
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 8px;
+      z-index: 100;
+      padding: 12px 18px;
+      background: #d22b2b;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .5px;
+      transition: top .15s ease;
+    }
+
+    .skip-link:focus {
+      top: 8px;
+    }
+
     .container {
       width: min(var(--containerWidth), calc(100% - 40px));
       margin: auto;
@@ -196,9 +223,11 @@ const navLinks = [
 
 <body>
 
+<a href="#main-content" class="skip-link">Skip to content</a>
+
 <header>
   <div class="container">
-    <nav>
+    <nav aria-label="Primary">
 
       <a href="/" class="brand">
         DEFLOCK <span>LEE'S SUMMIT</span>
@@ -227,7 +256,10 @@ const navLinks = [
       DeFlock Lee's Summit &bull; Lee's Summit, Missouri
     </div>
     <div class="footer-links">
+      <a href="/faq">FAQ</a>
       <a href="/glossary">GLOSSARY</a>
+      <a href="/handout">PRINTABLE HANDOUT</a>
+      <a href="/press">PRESS</a>
       <a href="/updates">UPDATES</a>
     </div>
   </div>

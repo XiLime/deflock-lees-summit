@@ -1,0 +1,172 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const faqs = [
+  {
+    q: "Doesn't this just help catch car thieves?",
+    a: "Not mostly. In the department's own search audit log, “Motor Vehicle Theft/Stolen” was the reason for only 158 of 2,699 logged searches — about 6%. The single most common reason was Larceny/Theft (268 searches), followed by Wanted Person (225) and Drugs/Narcotics (184). Whatever this program is mainly used for, it isn't primarily stolen-car recovery."
+  },
+  {
+    q: "I have nothing to hide. Why should I care?",
+    a: "This isn't about hiding anything — it's about a searchable record of where every driver in Lee's Summit goes, kept regardless of suspicion. The audit log shows officers running freeform searches with no plate number at all, just vehicle descriptions, and in one case running 15 lookups tracking a legal gathering of pickup trucks. Ordinary, lawful driving is what gets logged."
+  },
+  {
+    q: "Isn't this just like a regular security camera?",
+    a: "A security camera shows footage of one spot. This system automatically reads every plate that passes, timestamps and geolocates it, and makes it instantly searchable — not just by Lee's Summit, but by any of the outside organizations Lee's Summit shares data with. One single search in the audit log reached 6,266 separate camera networks nationwide."
+  },
+  {
+    q: "Doesn't Lee's Summit control who sees its camera data?",
+    a: "Less than you'd think. The city's own Flock sharing settings list 1,729 outside organizations in a data-sharing relationship with Lee's Summit. 1,555 of them can search cameras Lee's Summit shares — including retail corporations, private railroad police, and out-of-state fusion centers, spanning at least 40 states."
+  },
+  {
+    q: "Lots of cities use Flock. What's specific to Lee's Summit here?",
+    a: "Nationwide adoption is exactly why we're publishing verified specifics rather than general arguments — the actual dollar cost to Lee's Summit taxpayers ($909,150 over five years), the actual search log, and the actual list of who Lee's Summit shares data with. This is a nationwide movement — see DeFlock.org — but every city's contract and usage looks different, and residents deserve their own city's numbers."
+  },
+  {
+    q: "How do you know these records are accurate?",
+    a: "Every document on this site is a public record obtained directly from the City of Lee's Summit under Missouri's Sunshine Law (RSMo Chapter 610), and the original files are linked for download on the Records and Sunshine Tracker pages so you can check our reading of them yourself. The Record 06 audit log was independently obtained by a second Lee's Summit resident."
+  },
+  {
+    q: "What's actually being asked for here?",
+    a: "We're asking the City of Lee's Summit to end its automated license plate reader program with Flock Safety and remove the cameras from the public right-of-way — not to adjust settings or add more oversight to the existing program."
+  },
+  {
+    q: "What can I actually do about this?",
+    a: "Email or call the Mayor and City Council, show up to speak at a City Council meeting, or just help spread the records to other residents. The Take Action page has verified contact info, meeting times, and a printable handout you can bring to a meeting."
+  }
+];
+---
+
+<BaseLayout
+  title="FAQ | DeFlock Lee's Summit"
+  description="Answers to common questions and pushback about Lee's Summit's Flock Safety ALPR program, grounded in the city's own public records."
+  containerWidth="900px"
+>
+  <style>
+    .hero {
+      padding: 75px 0 55px;
+      border-bottom: 1px solid #292929;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: .95;
+      letter-spacing: -4px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .faq-list {
+      padding: 60px 0 90px;
+    }
+
+    .faq-entry {
+      padding: 28px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .faq-entry:first-child {
+      padding-top: 0;
+    }
+
+    .faq-q {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .faq-q::before {
+      content: "Q. ";
+      color: #d22b2b;
+    }
+
+    .faq-a {
+      margin: 0;
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 15.5px;
+      max-width: 720px;
+    }
+
+    .faq-cta {
+      margin-top: 20px;
+      padding: 26px 30px;
+      background: #141414;
+      border-left: 4px solid #d22b2b;
+    }
+
+    .faq-cta p {
+      margin: 0;
+      color: #ccc;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .faq-cta a {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+  </style>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          COMMON QUESTIONS
+        </div>
+
+        <h1>
+          FAQ
+        </h1>
+
+        <p class="intro">
+          Every answer here is grounded in the records published on this
+          site — nothing here is speculation.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="faq-list">
+      <div class="container">
+
+        {faqs.map((item) => (
+          <div class="faq-entry">
+            <h3 class="faq-q">{item.q}</h3>
+            <p class="faq-a">{item.a}</p>
+          </div>
+        ))}
+
+        <div class="faq-cta">
+          <p>
+            Want the full source documents behind these answers? Everything
+            is on the <a href="/records">Records</a> page and the{" "}
+            <a href="/sunshine">Sunshine Tracker</a>. Ready to do something
+            with it? Head to <a href="/take-action">Take Action</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+</BaseLayout>
