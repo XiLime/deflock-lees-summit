@@ -1,0 +1,302 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="File Your Own Sunshine Request | DeFlock Lee's Summit"
+  description="A step-by-step guide to filing your own Missouri Sunshine Law records request with the City of Lee's Summit."
+  containerWidth="900px"
+>
+  <style>
+    .hero {
+      padding: 75px 0 55px;
+      border-bottom: 1px solid #292929;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(44px, 7.5vw, 76px);
+      line-height: .95;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .steps {
+      padding: 60px 0 30px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding: 34px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .step:first-child {
+      padding-top: 0;
+    }
+
+    .step-number {
+      color: #d22b2b;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .step h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    .step p {
+      color: #aaa;
+      line-height: 1.7;
+      font-size: 15px;
+      max-width: 640px;
+      margin: 0 0 12px;
+    }
+
+    .step p:last-child {
+      margin-bottom: 0;
+    }
+
+    .step a {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+
+    .fee-list {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: #aaa;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .action-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .action-button {
+      display: inline-block;
+      padding: 13px 20px;
+      background: #d22b2b;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .6px;
+    }
+
+    .action-button:hover {
+      background: #b82323;
+    }
+
+    .action-button.secondary {
+      background: transparent;
+      border: 1px solid #444;
+      color: #ccc;
+    }
+
+    .action-button.secondary:hover {
+      border-color: #d22b2b;
+      color: #fff;
+    }
+
+    .source-note {
+      margin: 40px 0 90px;
+      padding: 22px 26px;
+      background: #141414;
+      border: 1px solid #292929;
+      color: #888;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .source-note a {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: underline;
+    }
+  </style>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          DO IT YOURSELF
+        </div>
+
+        <h1>
+          FILE YOUR OWN SUNSHINE REQUEST
+        </h1>
+
+        <p class="intro">
+          Every document on this site exists because someone filed a
+          records request. It's not complicated, and you don't need a
+          lawyer. Here's exactly how to do it, using the same process
+          and citations behind our own requests.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="steps">
+      <div class="container">
+
+        <div class="step">
+          <div class="step-number">01</div>
+          <div>
+            <h2>Know what you're asking for</h2>
+            <p>
+              Missouri's Sunshine Law (Chapter 610, RSMo) gives any
+              resident the right to request most local government
+              records. The City's own guidance says to be{" "}
+              <a href="https://cityofls.net/city-clerk/public-records-request" target="_blank" rel="noopener noreferrer">
+                "as specific as possible, including dates, departments,
+                projects, etc."
+              </a>{" "}
+              &mdash; a vague request costs more to research and takes
+              longer to fill. Naming the exact contract, date range, or
+              record type gets you a faster, cheaper answer.
+            </p>
+            <p>
+              Note that police records and court records sometimes go
+              through department-specific channels rather than the
+              general city form &mdash; if you're not sure, the City
+              Clerk's office can point you the right way.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <div class="step-number">02</div>
+          <div>
+            <h2>Submit the request</h2>
+            <p>
+              The City of Lee's Summit accepts requests two ways: fill
+              out the online form directly on the City Clerk's{" "}
+              <a href="https://cityofls.net/city-clerk/public-records-request" target="_blank" rel="noopener noreferrer">
+                Public Records Request page
+              </a>, or print the{" "}
+              <a href="https://cityofls.net/Portals/0/Files/City-Administration/City-Clerk/RECORDS%20REQUEST%20FORM.pdf" target="_blank" rel="noopener noreferrer">
+                official Records Request Form (PDF)
+              </a>{" "}
+              and mail or deliver it to City Hall, 220 SE Green St, Lee's
+              Summit, MO 64063. The City Clerk's office can also be
+              reached at{" "}<a href="tel:8169691007">816.969.1007</a>,
+              Monday&ndash;Friday, 8 a.m.&ndash;5 p.m.
+            </p>
+            <div class="action-buttons">
+              <a class="action-button" href="https://cityofls.net/city-clerk/public-records-request" target="_blank" rel="noopener noreferrer">
+                SUBMIT ONLINE →
+              </a>
+              <a class="action-button secondary" href="https://cityofls.net/Portals/0/Files/City-Administration/City-Clerk/RECORDS%20REQUEST%20FORM.pdf" target="_blank" rel="noopener noreferrer">
+                DOWNLOAD THE PDF FORM
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <div class="step-number">03</div>
+          <div>
+            <h2>Know the City's deadline</h2>
+            <p>
+              Under §610.023.3 RSMo, the City must grant access to
+              records within three business days of your request, or
+              give you a detailed explanation for the delay and the
+              earliest place, time, and date the records will be
+              available. Under{" "}
+              <em>Gross v. Parson</em>, 624 S.W.3d 877 (Mo. banc 2021),
+              the Missouri Supreme Court held that this must be a
+              specific date &mdash; not an estimated range like "25 to
+              30 business days." If a department gives you only a
+              range, you can cite <em>Gross</em> back and ask for the
+              specific date the law requires.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <div class="step-number">04</div>
+          <div>
+            <h2>If something's withheld</h2>
+            <p>
+              Governments can only withhold or redact records under a
+              specific statutory exemption listed in §610.021 RSMo.
+              You're entitled to ask which exact exemption applies to
+              each withheld record — don't accept a blanket "that's
+              confidential" without a citation.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="step">
+          <div class="step-number">05</div>
+          <div>
+            <h2>Expect reasonable fees</h2>
+            <p>
+              Lee's Summit's published fee schedule allows:
+            </p>
+            <ul class="fee-list">
+              <li>Copying fee &mdash; $0.10 per page</li>
+              <li>Copy charge &mdash; $15.00 per hour</li>
+              <li>Research fee &mdash; researcher's hourly rate</li>
+              <li>DVD/CD copies &mdash; $10.00 each</li>
+              <li>8.475% tax on document or DVD/CD copies</li>
+            </ul>
+            <p>
+              You can ask the department to advise you in advance if
+              fees will exceed a certain amount, and you can request a
+              fee waiver if the records serve the public interest
+              rather than a private one.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <div class="container">
+      <div class="source-note">
+        Want to see this process in action? Every request we've filed
+        &mdash; and every response we've gotten back &mdash; is public on
+        the <a href="/sunshine">Sunshine Tracker</a>. Filing a request
+        about the Flock program specifically? Feel free to browse our
+        past requests there for language you can adapt. All contact
+        details above were confirmed directly against the City's own{" "}
+        <a href="https://cityofls.net/city-clerk/public-records-request" target="_blank" rel="noopener noreferrer">
+          Public Records Request page
+        </a>.
+      </div>
+    </div>
+
+  </main>
+
+</BaseLayout>

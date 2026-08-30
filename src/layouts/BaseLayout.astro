@@ -41,6 +41,7 @@ const navLinks = [
   <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/favicon-192x192.png" type="image/png" sizes="192x192" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="alternate" type="application/rss+xml" title="DeFlock Lee's Summit Updates" href="/rss.xml" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DeFlock Lee's Summit" />
@@ -55,6 +56,20 @@ const navLinks = [
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "DeFlock Lee's Summit",
+    url: "https://deflockls.com",
+    logo: "https://deflockls.com/logo.png",
+    description: "A citizen-led effort demanding an end to automated license plate reader surveillance in Lee's Summit, Missouri.",
+    sameAs: [
+      "https://www.facebook.com/profile.php?id=61592899809324",
+      "https://www.facebook.com/share/g/1F9SxUd93S/",
+      "https://deflock.org",
+    ],
+  })} />
 
   <style is:global define:vars={{ containerWidth }}>
     * {
@@ -258,6 +273,7 @@ const navLinks = [
     <div class="footer-links">
       <a href="/faq">FAQ</a>
       <a href="/glossary">GLOSSARY</a>
+      <a href="/file-a-request">FILE A REQUEST</a>
       <a href="/handout">PRINTABLE HANDOUT</a>
       <a href="/press">PRESS</a>
       <a href="/updates">UPDATES</a>

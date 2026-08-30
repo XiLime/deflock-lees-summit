@@ -1,6 +1,15 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const pageUrl = "https://deflockls.com/faq";
+const shareText =
+  "Doesn't Lee's Summit's Flock camera program just help catch car thieves? Not mostly — only 6% of logged searches were for stolen vehicles. Here's what it's actually used for:";
+
+const twitterShareHref =
+  `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`;
+const facebookShareHref =
+  `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+
 const faqs = [
   {
     q: "Doesn't this just help catch car thieves?",
@@ -67,6 +76,34 @@ const faqs = [
       color: #aaa;
       font-size: 18px;
       line-height: 1.7;
+    }
+
+    .share-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .share-label {
+      color: #777;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .share-row a {
+      color: #ccc;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      border: 1px solid #444;
+      padding: 8px 14px;
+    }
+
+    .share-row a:hover {
+      border-color: #d22b2b;
+      color: #fff;
     }
 
     .faq-list {
@@ -140,6 +177,12 @@ const faqs = [
           Every answer here is grounded in the records published on this
           site — nothing here is speculation.
         </p>
+
+        <div class="share-row">
+          <span class="share-label">SHARE:</span>
+          <a href={twitterShareHref} target="_blank" rel="noopener noreferrer">X / TWITTER</a>
+          <a href={facebookShareHref} target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+        </div>
 
       </div>
     </section>

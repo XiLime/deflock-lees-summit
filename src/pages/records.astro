@@ -2,6 +2,15 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import sharedNetworksCsvRaw from "../../public/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv?raw";
 
+const flockAuditPageUrl = "https://deflockls.com/records#flock-audit";
+const flockAuditShareText =
+  "Lee's Summit's own Flock camera audit log: 2,699 searches by 89 officers, one reaching 6,266 outside camera networks, and data shared with 1,729 outside organizations.";
+
+const flockAuditTwitterHref =
+  `https://twitter.com/intent/tweet?text=${encodeURIComponent(flockAuditShareText)}&url=${encodeURIComponent(flockAuditPageUrl)}`;
+const flockAuditFacebookHref =
+  `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(flockAuditPageUrl)}`;
+
 function parseCsvLine(line: string): string[] {
   const cells: string[] = [];
   let cur = "";
@@ -486,6 +495,34 @@ h1 {
   color: #aaa;
   line-height: 1.7;
   font-size: 17px;
+}
+
+.share-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.share-label {
+  color: #777;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.share-row a {
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .4px;
+  border: 1px solid #444;
+  padding: 8px 14px;
+}
+
+.share-row a:hover {
+  border-color: #d22b2b;
+  color: #fff;
 }
 
 .permit-grid {
@@ -1685,6 +1722,12 @@ h1 {
       custom watchlists, its alert configuration, and the full list of
       outside organizations it trades camera data with. This is what's in them.
     </p>
+
+    <div class="share-row">
+      <span class="share-label">SHARE:</span>
+      <a href={flockAuditTwitterHref} target="_blank" rel="noopener noreferrer">X / TWITTER</a>
+      <a href={flockAuditFacebookHref} target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+    </div>
 
 
     <div class="money-highlight">

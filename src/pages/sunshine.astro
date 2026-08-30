@@ -164,6 +164,11 @@ const requests = [
     title: "Flock Policy, Audits, Retention and Annual Report Records",
     status: "PENDING",
     statusClass: "pending",
+    estimate: {
+      fromDate: "2026-08-13",
+      businessDays: 30,
+      note: "LSPD estimated 25–30 business days from this date"
+    },
     summary:
       "Requested the policies and records supporting LSPD's statements about safeguards, Flock searches, retention, audits, hotlist alerts, expanded database access, outside-agency access, and the 2025 Annual Report.",
     documents: [
@@ -208,6 +213,11 @@ const requests = [
     title: "Flock Ownership, Cost, Installation and Operations",
     status: "PENDING",
     statusClass: "pending",
+    estimate: {
+      fromDate: "2026-08-11",
+      businessDays: 25,
+      note: "LSPD estimated 25 business days from this date"
+    },
     summary:
       "Requested records identifying who owns the cameras, who paid for them, costs, installation, contracts, funding, camera models and locations, administrators, policies and outside-agency access.",
     documents: [
@@ -280,6 +290,48 @@ const requests = [
     ]
   }
 ];
+
+function countBusinessDaysBetween(fromDate: Date, toDate: Date): number {
+  let count = 0;
+  const cursor = new Date(fromDate);
+  cursor.setDate(cursor.getDate() + 1);
+
+  while (cursor <= toDate) {
+    const day = cursor.getDay();
+    if (day !== 0 && day !== 6) count++;
+    cursor.setDate(cursor.getDate() + 1);
+  }
+
+  return count;
+}
+
+const today = new Date();
+
+const requestsWithEstimates = requests.map((request) => {
+  if (!("estimate" in request) || !request.estimate) return request;
+
+  const elapsedBusinessDays = countBusinessDaysBetween(
+    new Date(`${request.estimate.fromDate}T00:00:00`),
+    today
+  );
+  const isOverdue = elapsedBusinessDays > request.estimate.businessDays;
+
+  return {
+    ...request,
+    estimateStatus: {
+      elapsedBusinessDays,
+      isOverdue,
+    },
+  };
+});
+
+const stats = {
+  total: requests.length,
+  fulfilled: requests.filter((r) => r.statusClass === "fulfilled").length,
+  pending: requests.filter((r) => r.statusClass === "pending").length,
+  closed: requests.filter((r) => r.statusClass === "closed").length,
+  overdue: requestsWithEstimates.filter((r) => "estimateStatus" in r && r.estimateStatus?.isOverdue).length,
+};
 ---
 
 <BaseLayout
@@ -312,6 +364,62 @@ const requests = [
       color: #aaa;
       font-size: 18px;
       line-height: 1.7;
+    }
+
+    .tracker-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 35px;
+      border: 1px solid #292929;
+    }
+
+    .tracker-stat {
+      padding: 22px;
+      background: #141414;
+      border-right: 1px solid #292929;
+    }
+
+    .tracker-stat:last-child {
+      border-right: 0;
+    }
+
+    .tracker-stat strong {
+      display: block;
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+
+    .tracker-stat span {
+      display: block;
+      margin-top: 6px;
+      color: #999;
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: .6px;
+    }
+
+    .tracker-stat.overdue strong,
+    .tracker-stat.overdue span {
+      color: #d22b2b;
+    }
+
+    @media (max-width: 700px) {
+      .tracker-stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .file-request-note {
+      margin-top: 20px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .file-request-note a {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: underline;
     }
 
     .request-list {
@@ -366,6 +474,29 @@ const requests = [
     .status.fulfilled {
       color: #3fae5c;
       border-color: #3fae5c;
+    }
+
+    .status.overdue {
+      color: #d22b2b;
+      border-color: #d22b2b;
+    }
+
+    .status-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .estimate-note {
+      color: #999;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+
+    .estimate-note.overdue {
+      color: #d22b2b;
     }
 
     .request-card h2 {
@@ -597,6 +728,32 @@ const requests = [
         Requests, responses and produced records will be added as they are received.
       </p>
 
+      <div class="tracker-stats">
+        <div class="tracker-stat">
+          <strong>{stats.total}</strong>
+          <span>REQUESTS FILED</span>
+        </div>
+        <div class="tracker-stat">
+          <strong>{stats.fulfilled}</strong>
+          <span>RECORDS RECEIVED</span>
+        </div>
+        <div class="tracker-stat">
+          <strong>{stats.pending}</strong>
+          <span>STILL PENDING</span>
+        </div>
+        {stats.overdue > 0 && (
+          <div class="tracker-stat overdue">
+            <strong>{stats.overdue}</strong>
+            <span>PAST THE CITY'S OWN ESTIMATE</span>
+          </div>
+        )}
+      </div>
+
+      <p class="file-request-note">
+        Want records on something else the City does?{" "}
+        <a href="/file-a-request">Here's how to file your own Sunshine request →</a>
+      </p>
+
     </div>
   </section>
 
@@ -604,7 +761,7 @@ const requests = [
 
     <div class="request-list">
 
-      {requests.map((request) => (
+      {requestsWithEstimates.map((request) => (
 
         <article class="request-card">
 
@@ -616,8 +773,18 @@ const requests = [
                 REQUEST {request.id}
               </div>
 
-              <div class={`status ${request.statusClass}`}>
-                {request.status}
+              <div class="status-group">
+
+                <div class={`status ${request.statusClass}`}>
+                  {request.status}
+                </div>
+
+                {"estimateStatus" in request && request.estimateStatus?.isOverdue && (
+                  <div class="status overdue">
+                    PAST CITY'S ESTIMATE
+                  </div>
+                )}
+
               </div>
 
             </div>
@@ -631,6 +798,14 @@ const requests = [
             {request.requestedBy && (
               <div class="request-by">
                 REQUESTED BY {request.requestedBy}
+              </div>
+            )}
+
+            {"estimate" in request && request.estimate && "estimateStatus" in request && request.estimateStatus && (
+              <div class={`estimate-note ${request.estimateStatus.isOverdue ? "overdue" : ""}`}>
+                {request.estimate.note} &mdash;{" "}
+                {request.estimateStatus.elapsedBusinessDays} business days elapsed so far
+                {request.estimateStatus.isOverdue && " (past that estimate)"}
               </div>
             )}
 
