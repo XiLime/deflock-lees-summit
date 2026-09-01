@@ -7,6 +7,11 @@ export function slugifyUpdateTitle(title: string): string {
 
 export const updates = [
   {
+    date: "2026-08-31",
+    title: "New request filed for the Chief's council email",
+    body: "During the August 18 City Council meeting, a councilmember thanked the Police Chief for an email about the Flock program. Filed a request for that email plus related Police Department-to-Council communications, briefing materials, and monitoring/accreditation records — now tracked on the Sunshine Tracker."
+  },
+  {
     date: "2026-08-29",
     title: "Made the \"file your own request\" guide easier to find",
     body: "It was only linked from a small footer line. Added a real callout button on the Sunshine Tracker, a dedicated step on the Take Action page, and a mention in the FAQ."
