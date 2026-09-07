@@ -7,6 +7,11 @@ export function slugifyUpdateTitle(title: string): string {
 
 export const updates = [
   {
+    date: "2026-09-07",
+    title: "Records Request Fund launched",
+    body: "Sunshine Law requests aren't free — copying and research fees add up. Launched a GoFundMe to help cover those costs and added a Records Request Fund page tracking donations (live, straight from GoFundMe) alongside a running ledger of exactly what's been spent."
+  },
+  {
     date: "2026-08-31",
     title: "New request filed for the Chief's council email",
     body: "During the August 18 City Council meeting, a councilmember thanked the Police Chief for an email about the Flock program. Filed a request for that email plus related Police Department-to-Council communications, briefing materials, and monitoring/accreditation records — now tracked on the Sunshine Tracker."

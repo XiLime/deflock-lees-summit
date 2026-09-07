@@ -1,0 +1,219 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { expenses, totalSpent } from "../data/ledger";
+
+const formatCurrency = (amount: number) =>
+  amount.toLocaleString("en-US", { style: "currency", currency: "USD" });
+---
+
+<BaseLayout
+  title="Records Request Fund | DeFlock Lee's Summit"
+  description="Track donations to the DeFlock Lee's Summit records request fund and see exactly what's been spent obtaining public records."
+  containerWidth="850px"
+>
+  <style>
+    .hero {
+      padding: 75px 0 55px;
+      border-bottom: 1px solid #292929;
+    }
+
+    .eyebrow {
+      color: #d22b2b;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      margin: 12px 0 20px;
+      font-size: clamp(44px, 7.5vw, 76px);
+      line-height: .95;
+      letter-spacing: -3px;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: #aaa;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 50px 0;
+      border-bottom: 1px solid #292929;
+    }
+
+    .section-label {
+      color: #d22b2b;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(26px, 4vw, 34px);
+      letter-spacing: -1px;
+    }
+
+    .section-note {
+      max-width: 650px;
+      color: #999;
+      line-height: 1.65;
+      font-size: 14.5px;
+      margin-bottom: 26px;
+    }
+
+    .gfm-wrap {
+      max-width: 480px;
+    }
+
+    .ledger-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .ledger-table th {
+      text-align: left;
+      padding: 12px 14px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #999;
+      border-bottom: 1px solid #292929;
+    }
+
+    .ledger-table td {
+      padding: 14px;
+      border-bottom: 1px solid #1c1c1c;
+      color: #ccc;
+    }
+
+    .ledger-table .amount {
+      text-align: right;
+      font-weight: 800;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .ledger-empty {
+      padding: 30px;
+      background: #141414;
+      border: 1px solid #292929;
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .ledger-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 14px 0;
+      margin-top: 4px;
+      border-top: 2px solid #444;
+      font-weight: 900;
+    }
+
+    .ledger-total span:last-child {
+      font-size: 20px;
+    }
+  </style>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="eyebrow">
+          TRANSPARENCY
+        </div>
+
+        <h1>
+          RECORDS REQUEST FUND
+        </h1>
+
+        <p class="intro">
+          Filing Sunshine Law requests isn't free &mdash; copying, research,
+          and production fees add up. This page tracks money raised to
+          cover those costs, and exactly what it's been spent on.
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-label">DONATIONS</div>
+        <h2>WHAT'S COME IN</h2>
+
+        <p class="section-note">
+          This total updates live and comes directly from GoFundMe &mdash;
+          we don't touch it.
+        </p>
+
+        <div class="gfm-wrap">
+          <div class="gfm-embed" data-url="https://www.gofundme.com/f/support-public-records-access-in-lees-summit/widget/large?attribution_id=sl%3A68981a61-c623-426b-af83-894048accbb0"></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="container">
+
+        <div class="section-label">EXPENSES</div>
+        <h2>WHAT IT'S BEEN SPENT ON</h2>
+
+        <p class="section-note">
+          Every expense below is a fee actually paid to the City of Lee's
+          Summit for a specific records request. Updated as requests are
+          fulfilled and invoiced.
+        </p>
+
+        {expenses.length === 0 ? (
+          <div class="ledger-empty">
+            No expenses logged yet &mdash; check back as requests are
+            fulfilled and fees come due.
+          </div>
+        ) : (
+          <>
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>WHAT FOR</th>
+                  <th style="text-align: right;">AMOUNT</th>
+                </tr>
+              </thead>
+              <tbody>
+                {expenses.map((item) => (
+                  <tr>
+                    <td>{item.date}</td>
+                    <td>{item.description}</td>
+                    <td class="amount">{formatCurrency(item.amount)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <div class="ledger-total">
+              <span>TOTAL SPENT</span>
+              <span>{formatCurrency(totalSpent)}</span>
+            </div>
+          </>
+        )}
+
+      </div>
+    </section>
+
+  </main>
+
+  <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+
+</BaseLayout>
