@@ -8,6 +8,11 @@ export function slugifyUpdateTitle(title: string): string {
 export const updates = [
   {
     date: "2026-09-07",
+    title: "City quoted a fee, and partially pushed back, on the ARPA request",
+    body: "The City agreed to produce contract and expenditure records for the ARPA request but said it won't fulfill the \"records reflecting\" language, calling that a request to interpret records. Cost quoted: $137.60 for staff research time. Added to that request's timeline on the Sunshine Tracker and logged as a pending invoice on the new Records Request Fund page."
+  },
+  {
+    date: "2026-09-07",
     title: "Records Request Fund launched",
     body: "Sunshine Law requests aren't free — copying and research fees add up. Launched a GoFundMe to help cover those costs and added a Records Request Fund page tracking donations (live, straight from GoFundMe) alongside a running ledger of exactly what's been spent."
   },

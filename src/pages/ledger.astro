@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { expenses, totalSpent } from "../data/ledger";
+import { expenses, totalSpent, totalPending } from "../data/ledger";
 
 const formatCurrency = (amount: number) =>
   amount.toLocaleString("en-US", { style: "currency", currency: "USD" });
@@ -69,8 +69,13 @@ const formatCurrency = (amount: number) =>
       max-width: 480px;
     }
 
+    .ledger-table-wrap {
+      overflow-x: auto;
+    }
+
     .ledger-table {
       width: 100%;
+      min-width: 480px;
       border-collapse: collapse;
       font-size: 14px;
     }
@@ -119,6 +124,33 @@ const formatCurrency = (amount: number) =>
 
     .ledger-total span:last-child {
       font-size: 20px;
+    }
+
+    .ledger-total.pending {
+      border-top: none;
+      margin-top: 10px;
+      padding-top: 0;
+      color: #e5b94b;
+    }
+
+    .status-pill {
+      display: inline-block;
+      padding: 5px 10px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .5px;
+      border: 1px solid #555;
+      white-space: nowrap;
+    }
+
+    .status-pill.pending {
+      color: #e5b94b;
+      border-color: #e5b94b;
+    }
+
+    .status-pill.paid {
+      color: #3fae5c;
+      border-color: #3fae5c;
     }
   </style>
 
@@ -183,29 +215,44 @@ const formatCurrency = (amount: number) =>
           </div>
         ) : (
           <>
-            <table class="ledger-table">
-              <thead>
-                <tr>
-                  <th>DATE</th>
-                  <th>WHAT FOR</th>
-                  <th style="text-align: right;">AMOUNT</th>
-                </tr>
-              </thead>
-              <tbody>
-                {expenses.map((item) => (
+            <div class="ledger-table-wrap">
+              <table class="ledger-table">
+                <thead>
                   <tr>
-                    <td>{item.date}</td>
-                    <td>{item.description}</td>
-                    <td class="amount">{formatCurrency(item.amount)}</td>
+                    <th>DATE</th>
+                    <th>WHAT FOR</th>
+                    <th>STATUS</th>
+                    <th style="text-align: right;">AMOUNT</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {expenses.map((item) => (
+                    <tr>
+                      <td>{item.date}</td>
+                      <td>{item.description}</td>
+                      <td>
+                        <span class={`status-pill ${item.status}`}>
+                          {item.status === "paid" ? "PAID" : "PENDING INVOICE"}
+                        </span>
+                      </td>
+                      <td class="amount">{formatCurrency(item.amount)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
             <div class="ledger-total">
               <span>TOTAL SPENT</span>
               <span>{formatCurrency(totalSpent)}</span>
             </div>
+
+            {totalPending > 0 && (
+              <div class="ledger-total pending">
+                <span>PENDING INVOICES (NOT YET PAID)</span>
+                <span>{formatCurrency(totalPending)}</span>
+              </div>
+            )}
           </>
         )}
 
