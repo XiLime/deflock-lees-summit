@@ -7,6 +7,11 @@ export function slugifyUpdateTitle(title: string): string {
 
 export const updates = [
   {
+    date: "2026-09-14",
+    title: "Two long-pending requests answered — and LSPD says it cut off outside data sharing",
+    body: "The City finally responded to the August 10 and August 12 requests. Notably, LSPD now says that as of this response it \"no longer allows outside agencies or organizations to access or receive Lee's Summit Flock/ALPR data\" — a reversal from the 1,729 outside organizations documented in Record 06. The August 12 request was only partially answered (policy documents provided, but audit-log and hotlist-figure questions went unaddressed). Also added follow-up answers on data retention to the original vehicle-specific request."
+  },
+  {
     date: "2026-09-07",
     title: "City quoted a fee, and partially pushed back, on the ARPA request",
     body: "The City agreed to produce contract and expenditure records for the ARPA request but said it won't fulfill the \"records reflecting\" language, calling that a request to interpret records. Cost quoted: $137.60 for staff research time. Added to that request's timeline on the Sunshine Tracker and logged as a pending invoice on the new Records Request Fund page."

@@ -196,8 +196,8 @@ const requests = [
     id: "AUG-12-2026",
     date: "August 12, 2026",
     title: "Flock Policy, Audits, Retention and Annual Report Records",
-    status: "PENDING",
-    statusClass: "pending",
+    status: "PARTIALLY FULFILLED",
+    statusClass: "partial",
     estimate: {
       fromDate: "2026-08-13",
       businessDays: 30,
@@ -212,9 +212,19 @@ const requests = [
         href: "/documents/sunshine/2026-08-12_flock_policy_request_submission_PUBLIC.pdf"
       },
       {
-        type: "CITY RESPONSE",
-        title: "Read the City's Response",
+        type: "CITY RESPONSE (ACKNOWLEDGMENT)",
+        title: "Read the City's Initial Response",
         href: "/documents/sunshine/2026-08-13_flock_policy_city_response_PUBLIC.pdf"
+      },
+      {
+        type: "CITY RESPONSE (POLICIES)",
+        title: "Read the City's Follow-Up Response",
+        href: "/documents/sunshine/2026-09-11_aug12_request_city_response_PUBLIC.pdf"
+      },
+      {
+        type: "FLOCK CONTRACT",
+        title: "View Contract No. 2024-017",
+        href: "/documents/flock-contract-2024-017.pdf"
       },
       {
         type: "OFFICIAL CITY FORM",
@@ -237,6 +247,11 @@ const requests = [
         date: "AUG 13",
         title: "LSPD RESPONSE",
         text: "LSPD said additional time was required and estimated production within 25 to 30 business days."
+      },
+      {
+        date: "SEP 11",
+        title: "POLICIES AND CONTRACT PROVIDED",
+        text: "The City provided General Order 200.29 (current ALPR policy), GO 200.29C (a prior version), GO 100.06 (disciplinary procedures), and pointed back to the previously-provided Flock contract and training materials. The response did not address the audit-log export, the records supporting the Annual Report's 301,858 hotlist-alert and 48,516 stolen-vehicle-hit figures, what \"expanded database access\" refers to, or the 2025 outside-agency access list — those parts of the request remain open."
       }
     ]
   },
@@ -245,13 +260,8 @@ const requests = [
     id: "AUG-10-2026",
     date: "August 10, 2026",
     title: "Flock Ownership, Cost, Installation and Operations",
-    status: "PENDING",
-    statusClass: "pending",
-    estimate: {
-      fromDate: "2026-08-11",
-      businessDays: 25,
-      note: "LSPD estimated 25 business days from this date"
-    },
+    status: "RECORDS RECEIVED",
+    statusClass: "fulfilled",
     summary:
       "Requested records identifying who owns the cameras, who paid for them, costs, installation, contracts, funding, camera models and locations, administrators, policies and outside-agency access.",
     documents: [
@@ -263,7 +273,12 @@ const requests = [
       {
         type: "CITY RESPONSE",
         title: "Read the City's Response",
-        href: "/documents/sunshine/2026-08-10_flock_system_followup_thread_PUBLIC.pdf"
+        href: "/documents/sunshine/2026-09-10_aug10_request_city_response_PUBLIC.pdf"
+      },
+      {
+        type: "FLOCK CONTRACT",
+        title: "View Contract No. 2024-017",
+        href: "/documents/flock-contract-2024-017.pdf"
       }
     ],
     timeline: [
@@ -281,6 +296,11 @@ const requests = [
         date: "AUG 18",
         title: "FOLLOW-UP SENT",
         text: "Requested the detailed explanation for the delay and the earliest specific date and time the records would be available."
+      },
+      {
+        date: "SEP 10",
+        title: "RECORDS PROVIDED",
+        text: "The City provided the Flock contract, General Order 200.29, a Flock training slide, the Falcon Flex FAQ, a partially-redacted Flock Flex camera deployment log, and the outside-organization sharing list. It said grant/outside-funding and permanent-camera-location records are held by the City Clerk's office rather than LSPD, and — notably — stated that as of the date of this response, LSPD \"no longer allows outside agencies or organizations to access or receive Lee's Summit Flock/ALPR data.\""
       }
     ]
   },
@@ -305,6 +325,11 @@ const requests = [
         href: "/documents/sunshine/2026-08-10_vehicle_request_city_response_PUBLIC.pdf"
       },
       {
+        type: "FOLLOW-UP ANSWERS",
+        title: "Read the Follow-Up Answers on Retention & Access",
+        href: "/documents/sunshine/2026-09-10_alpr_questions_followup_PUBLIC.pdf"
+      },
+      {
         type: "OFFICIAL CITY FORM",
         title: "View the Official Records Request Form",
         href: "/documents/sunshine/2026-08-07_official_records_request_form_PUBLIC.pdf"
@@ -320,6 +345,11 @@ const requests = [
         date: "AUG 10",
         title: "LSPD RESPONSE",
         text: "The Police Records Unit responded that it had no responsive records to the request."
+      },
+      {
+        date: "SEP 10",
+        title: "FOLLOW-UP ANSWERS PROVIDED",
+        text: "In response to follow-up questions, the department said no officer had searched this plate in Flock and that it cannot proactively search a plate without a crime-related law enforcement reason. It confirmed a 30-day retention period, that Flock data is hosted on Flock Safety's cloud platform rather than on-premise (though the City says it owns and controls that data), and that the City Hall records custodian does not have the same system access as Police Department authorized users."
       }
     ]
   }
@@ -362,7 +392,7 @@ const requestsWithEstimates = requests.map((request) => {
 const stats = {
   total: requests.length,
   fulfilled: requests.filter((r) => r.statusClass === "fulfilled").length,
-  pending: requests.filter((r) => r.statusClass === "pending").length,
+  pending: requests.filter((r) => r.statusClass === "pending" || r.statusClass === "partial").length,
   closed: requests.filter((r) => r.statusClass === "closed").length,
   overdue: requestsWithEstimates.filter((r) => "estimateStatus" in r && r.estimateStatus?.isOverdue).length,
 };
@@ -529,6 +559,11 @@ const stats = {
     .status.pending {
       color: #e5b94b;
       border-color: #e5b94b;
+    }
+
+    .status.partial {
+      color: #4a90d9;
+      border-color: #4a90d9;
     }
 
     .status.closed {
