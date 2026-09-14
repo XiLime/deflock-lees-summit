@@ -222,6 +222,21 @@ const requests = [
         href: "/documents/sunshine/2026-09-11_aug12_request_city_response_PUBLIC.pdf"
       },
       {
+        type: "CURRENT ALPR POLICY",
+        title: "View General Order 200.29 (Current)",
+        href: "/documents/sunshine/2026-09-10_go-200-29-alpr-policy_PUBLIC.pdf"
+      },
+      {
+        type: "PRIOR ALPR POLICY",
+        title: "View General Order 200.29C (Prior Version)",
+        href: "/documents/sunshine/2026-09-10_go-200-29c-prior-alpr-policy_PUBLIC.pdf"
+      },
+      {
+        type: "DISCIPLINARY PROCEDURES",
+        title: "View General Order 100.06",
+        href: "/documents/sunshine/2026-09-10_go-100-06-disciplinary-procedures_PUBLIC.pdf"
+      },
+      {
         type: "FLOCK CONTRACT",
         title: "View Contract No. 2024-017",
         href: "/documents/flock-contract-2024-017.pdf"
@@ -279,6 +294,31 @@ const requests = [
         type: "FLOCK CONTRACT",
         title: "View Contract No. 2024-017",
         href: "/documents/flock-contract-2024-017.pdf"
+      },
+      {
+        type: "CURRENT ALPR POLICY",
+        title: "View General Order 200.29",
+        href: "/documents/sunshine/2026-09-10_go-200-29-alpr-policy_PUBLIC.pdf"
+      },
+      {
+        type: "TRAINING SLIDE",
+        title: "View the Flock Training Slide",
+        href: "/documents/sunshine/2026-09-10_flock-training-slide_PUBLIC.png"
+      },
+      {
+        type: "FALCON FLEX FAQ",
+        title: "View the Falcon Flex FAQ & Training Guide",
+        href: "/documents/sunshine/2026-09-10_falcon-flex-faq-training_PUBLIC.pdf"
+      },
+      {
+        type: "CAMERA DEPLOYMENT LOG",
+        title: "View the Flock Flex Deployment Log",
+        href: "/documents/sunshine/2026-09-10_flock-flex-deployment-log_PUBLIC.pdf"
+      },
+      {
+        type: "SHARED NETWORKS",
+        title: "View the Outside-Organization Sharing List",
+        href: "/documents/flock-audit/2026-07-28_shared-networks_PUBLIC.csv"
       }
     ],
     timeline: [
@@ -956,7 +996,7 @@ const stats = {
                     rel="noopener noreferrer"
                   >
                     <div class="document-icon">
-                      {doc.href.endsWith(".csv") ? "CSV" : "PDF"}
+                      {doc.href.endsWith(".csv") ? "CSV" : doc.href.endsWith(".png") ? "IMG" : "PDF"}
                     </div>
 
                     <div class="document-info">

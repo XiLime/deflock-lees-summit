@@ -8,6 +8,11 @@ export function slugifyUpdateTitle(title: string): string {
 export const updates = [
   {
     date: "2026-09-14",
+    title: "Added the actual policy documents behind the September update",
+    body: "Published the real attachments referenced in the City's responses: General Order 200.29 (current ALPR policy) and its prior version, GO 100.06 (disciplinary procedures), the Falcon Flex FAQ, a training slide, and the Flock camera deployment log. Also added an update note to Record 06 flagging LSPD's claim that outside data sharing has stopped, since that page's published numbers predate it."
+  },
+  {
+    date: "2026-09-14",
     title: "Two long-pending requests answered — and LSPD says it cut off outside data sharing",
     body: "The City finally responded to the August 10 and August 12 requests. Notably, LSPD now says that as of this response it \"no longer allows outside agencies or organizations to access or receive Lee's Summit Flock/ALPR data\" — a reversal from the 1,729 outside organizations documented in Record 06. The August 12 request was only partially answered (policy documents provided, but audit-log and hotlist-figure questions went unaddressed). Also added follow-up answers on data retention to the original vehicle-specific request."
   },
