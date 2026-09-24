@@ -51,11 +51,21 @@ const requests = [
     id: "AUG-31-2026",
     date: "August 31, 2026",
     title: "Chief's Council Email and Related Flock Communications",
-    status: "PENDING",
-    statusClass: "pending",
+    status: "PARTIALLY FULFILLED",
+    statusClass: "partial",
     summary:
       "Requested the specific email Chief Forbes sent to City Council about the Flock program that Councilmember Funk thanked him for during the August 18, 2026 Council meeting, plus related Police Department-to-Council/Mayor/City Manager communications, the Chief's briefing materials, ALPR effectiveness and privacy-control monitoring records, accreditation compliance records, records defining authorized ALPR search purposes, and communications with Flock Group Inc. and the City's Communications Department.",
     documents: [
+      {
+        type: "CHIEF'S EMAIL TO COUNCIL",
+        title: "Read Chief Forbes' August 17 Email to Council",
+        href: "/documents/sunshine/2026-08-17_chief_forbes_council_email_PUBLIC.pdf"
+      },
+      {
+        type: "CITY RESPONSE & UPDATES",
+        title: "Read the City's Acknowledgment & Status Updates",
+        href: "/documents/sunshine/2026-09-24_aug31_request_city_updates_PUBLIC.pdf"
+      },
       {
         type: "OFFICIAL CITY FORM",
         title: "View the Official Records Request Form",
@@ -67,6 +77,21 @@ const requests = [
         date: "AUG 31",
         title: "REQUEST SUBMITTED",
         text: "Requested the email Councilmember Funk thanked Chief Forbes for during the August 18 Council meeting, along with related Police Department-Council communications, briefing materials, ALPR monitoring and accreditation records, and Flock Group communications from June 1, 2026 forward."
+      },
+      {
+        date: "SEP 1",
+        title: "CITY ACKNOWLEDGED RECEIPT",
+        text: "The City confirmed receipt (tracking number 2026.286) and said the volume of records requested would take longer than the standard three-business-day window."
+      },
+      {
+        date: "SEP 4",
+        title: "TIMELINE GIVEN",
+        text: "The City said it would need until September 23 to have documents ready, citing staff availability, and that research costs would apply."
+      },
+      {
+        date: "SEP 24",
+        title: "CHIEF'S EMAIL PROVIDED",
+        text: "The City produced the August 17, 2026 email Chief Forbes sent to the Mayor and City Council (forwarded by City Manager Mark Dunning) — the same email Councilmember Funk referenced, and the same material the Chief presented at the August 18 meeting, covering items #1 and #3. The email defends the department's 30-day ALPR retention period, citing recent homicide, robbery, child-exploitation and AMBER Alert cases, a \"no policy violations\" claim, and the department's public Transparency Hub. Items #2, #4, #5, #7 and #8 remain outstanding; the City is still preparing cost estimates for #2, #7 and #8, and expects records for #4 and #5 the following week."
       }
     ]
   },
@@ -919,7 +944,7 @@ const stats = {
 
       {requestsWithEstimates.map((request) => (
 
-        <article class="request-card">
+        <article class="request-card" id={request.id}>
 
           <div class="request-head">
 
