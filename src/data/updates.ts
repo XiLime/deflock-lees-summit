@@ -7,6 +7,11 @@ export function slugifyUpdateTitle(title: string): string {
 
 export const updates = [
   {
+    date: "2026-10-27",
+    title: "October: monthly Flock audits, payment records, and forfeiture ledgers arrive",
+    body: "A month of City responses is now on the Sunshine Tracker. LSPD produced its monthly ALPR audits for January through August 2026, Flock audit-assistance reports, and half of the supporting spreadsheets, but refused to swap officer names for anonymous labels, which means the audit logs can't show whether the same user searched repeatedly. The City Clerk's office produced Flock payment records, the final contract, and Ordinance 9728, and confirmed Flock was a sole-source purchase with no RFP. Forfeiture account ledgers for FY2022 to present all show no expenditures. The three August 29 funding requests were consolidated into one, and the Records Request Fund now shows $208.92 paid."
+  },
+  {
     date: "2026-09-24",
     title: "Published the Chief's actual email to City Council",
     body: "The City produced the August 17 email Chief Forbes sent to the Mayor and Council — the same one a councilmember thanked him for and the material he presented at the August 18 meeting. It defends the department's 30-day ALPR retention period citing recent homicide, robbery, child-exploitation and AMBER Alert cases. Several other parts of that request are still outstanding, so it's marked partially fulfilled. Sunshine Tracker request cards now also have direct, shareable links."

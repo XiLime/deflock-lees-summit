@@ -9,10 +9,16 @@ export interface Expense {
 
 export const expenses: Expense[] = [
   {
-    date: "2026-09-03",
-    description: "Staff research time — ARPA/federal relief funding request (Request 2026.284)",
+    date: "2026-10-01",
+    description: "Staff research time — consolidated funding, procurement and forfeiture request (originally Request 2026.284, ARPA)",
     amount: 137.60,
-    status: "pending"
+    status: "paid"
+  },
+  {
+    date: "2026-10-05",
+    description: "LSPD redaction time (4 hrs at $16.58) and USB drive — Flock audit records (Request 2026.275)",
+    amount: 71.32,
+    status: "paid"
   }
 ];
 
